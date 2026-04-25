@@ -13,7 +13,7 @@ export const siteConfig = {
   logoPath: '/img/logo.png',
   phone: '+49 172 7040172',
   emergencyPhone: '+49 172 7040172',
-  email: 'info@kocerbau.com',
+  email: 'kocerbau2025@gmail.com',
   serviceArea: 'Berlin, Brandenburg und ausgewahlte Wohnprojekte deutschlandweit',
   address: {
     streetAddress: 'Vor-Ort-Termine nach Vereinbarung',

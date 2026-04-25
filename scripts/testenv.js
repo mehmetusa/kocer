@@ -13,14 +13,14 @@ async function testSMTP() {
       port: 587,
       secure: false, // use TLS
       auth: {
-        user: 'info@kocerbau.com',
+        user: 'kocerbau2025@gmail.com',
         pass: process.env.SMTP_PASS, // use env variable for safety
       },
     });
 
     const info = await transporter.sendMail({
-      from: '"SMTP Test" <info@kocerbau.com>',
-      to: 'info@kocerbau.com',
+      from: '"SMTP Test" <kocerbau2025@gmail.com>',
+      to: 'kocerbau2025@gmail.com',
       subject: 'SMTP Test',
       text: 'If you see this, SMTP credentials are correct ✅',
     });
