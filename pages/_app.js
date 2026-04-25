@@ -9,21 +9,23 @@ import { DefaultSeo } from 'next-seo';
 import { LanguageProvider } from '../context/LanguageContext';
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
+  const appContent = (
+    <LanguageProvider>
+      <div className="appWrapper">
+        <div className="appContainer">
+          <Layout>
+            <DefaultSeo {...SEO} />
+            <Component {...pageProps} />
+          </Layout>
+        </div>
+      </div>
+    </LanguageProvider>
+  );
+
   return (
     <SessionProvider session={session}>
       <Provider store={store}>
-        <PersistGate loading={null} persistor={persistor}>
-          <LanguageProvider>
-            <div className="appWrapper">
-              <div className="appContainer">
-                <Layout>
-                  <DefaultSeo {...SEO} />
-                  <Component {...pageProps} />
-                </Layout>
-              </div>
-            </div>
-          </LanguageProvider>
-        </PersistGate>
+        {persistor ? <PersistGate loading={null} persistor={persistor}>{appContent}</PersistGate> : appContent}
       </Provider>
     </SessionProvider>
   );

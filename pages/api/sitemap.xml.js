@@ -18,7 +18,6 @@ export default function handler(req, res) {
     '/privacy-policy',
     '/terms-of-use',
     '/products',
-    '/[slug]',
   ]);
 
   // Read all page files

@@ -3,8 +3,22 @@ import { configureStore } from '@reduxjs/toolkit';
 import { combineReducers } from 'redux';
 import cartReducer from './cartSlice';
 import userReducer from './userSlice';
-import storage from 'redux-persist/lib/storage';
+import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import { persistStore, persistReducer } from 'redux-persist';
+
+const createNoopStorage = () => ({
+  getItem() {
+    return Promise.resolve(null);
+  },
+  setItem(_key, value) {
+    return Promise.resolve(value);
+  },
+  removeItem() {
+    return Promise.resolve();
+  },
+});
+
+const storage = typeof window !== 'undefined' ? createWebStorage('local') : createNoopStorage();
 
 const persistConfig = {
   key: 'root',
@@ -29,4 +43,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
+export const persistor = typeof window !== 'undefined' ? persistStore(store) : null;

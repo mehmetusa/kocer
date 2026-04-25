@@ -19,7 +19,6 @@ module.exports = {
     '/product/*',
     '/privacy-policy',
     '/terms-of-use',
-    '/[slug]',
     '/products',
     '/sitemap',
   ],
