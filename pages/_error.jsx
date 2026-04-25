@@ -24,14 +24,13 @@ export default function ErrorPage({ statusCode }) {
           ? 'The page you are looking for does not exist.'
           : 'Something went wrong. Please try again later.'}
       </p>
-      <Link href="/products">
-        <button className={styles.button}>Back to Shop</button>
+      <Link href="/products" className={styles.button}>
+        Back to Shop
       </Link>
     </div>
   );
 }
 
-// Get initial status code
 ErrorPage.getInitialProps = ({ res, err }) => {
   const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
   return { statusCode };
