@@ -8,7 +8,7 @@ export default function About() {
 
   return (
     <main className={styles.container}>
-      <SEO title={copy.seo.aboutTitle} description={copy.about.lead} />
+      <SEO title={copy.seo.aboutTitle} description={copy.about.lead} slug="about" />
 
       <section className={styles.hero}>
         <p className={styles.eyebrow}>{siteConfig.name}</p>

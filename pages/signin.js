@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Link from 'next/link';
 import LoadingSpinner from '../components/LoadingSpinner';
 import { styles } from '../styles/Signin.module.css';
@@ -16,8 +16,9 @@ export default function Login() {
   // Redirect after login
   useEffect(() => {
     if (status === 'authenticated') {
-      if (session.user.role === 'admin') router.replace('/admin');
-      else router.replace('/user');
+      const target = session.user.role === 'admin' ? '/admin' : '/user';
+      if (router) router.replace(target);
+      else if (typeof window !== 'undefined') window.location.replace(target);
     }
   }, [status, session, router]);
 

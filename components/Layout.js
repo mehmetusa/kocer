@@ -1,12 +1,10 @@
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { useLanguage } from '../context/LanguageContext';
 import { siteConfig } from '../data/siteContent';
 
 const Layout = ({ children, title, description, structuredData }) => {
-  const router = useRouter();
   const { language, copy } = useLanguage();
   const siteUrl = siteConfig.siteUrl;
   const seoTitle = title || copy.seo.defaultTitle;
@@ -39,13 +37,10 @@ const Layout = ({ children, title, description, structuredData }) => {
         <meta name="description" content={seoDescription} />
         <meta httpEquiv="content-language" content={language} />
 
-        <link rel="canonical" href={`${siteUrl}${router.asPath}`} />
-
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
         <meta property="og:image" content={`${siteUrl}${siteConfig.logoPath}`} />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content={`${siteUrl}${router.asPath}`} />
         <meta property="og:locale" content={language} />
 
         <meta name="twitter:card" content="summary_large_image" />

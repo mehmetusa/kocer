@@ -20,7 +20,7 @@ export default function Home() {
 
   return (
     <main className={styles.container}>
-      <SEO title={copy.seo.homeTitle} description={copy.seo.defaultDescription} />
+      <SEO title={copy.seo.homeTitle} description={copy.seo.defaultDescription} slug="" />
 
       <section className={styles.hero}>
         <div className={styles.heroContent}>

@@ -1,7 +1,7 @@
 // pages/login.jsx
 import { useState, useEffect } from 'react';
 import { signIn, useSession } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Link from 'next/link';
 import { useDispatch } from 'react-redux';
 import { setUser, resetUser } from '../redux/userSlice';
@@ -62,7 +62,9 @@ export default function Login() {
           );
 
           // ✅ Redirect AFTER user is synced
-          router.replace(data.role === 'admin' ? '/admin' : '/user');
+          const target = data.role === 'admin' ? '/admin' : '/user';
+          if (router) router.replace(target);
+          else if (typeof window !== 'undefined') window.location.replace(target);
         } catch (err) {
           console.error('Failed to fetch user details:', err);
           setError('Failed to load user details. Please try again.');

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { getSession, useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import ProductsTab from '../../components/admin/ProductsTab';
 import CouponsTab from '../../components/admin/CouponsTab';
@@ -20,7 +20,8 @@ const AdminPage = ({ products: initialProducts, orders: initialOrders, users: in
   useEffect(() => {
     if (status === 'loading') return;
     if (!session || session.user.role !== 'admin') {
-      router.replace('/login');
+      if (router) router.replace('/login');
+      else if (typeof window !== 'undefined') window.location.replace('/login');
     }
   }, [status, session, router]);
 

@@ -9,11 +9,11 @@ import SEO from '../../components/SEO';
 import RelatedProducts from '../../components/RelatedProducts';
 import dbConnect from '../../utils/mongo';
 import Product from '../../models/Product';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 
 const ProductDetail = ({ product, relatedProducts }) => {
   const router = useRouter();
-  const { edit, size } = router.query;
+  const routerQuery = router?.query || {};
 
   if (!product) return <div>Product not found.</div>;
 
@@ -44,21 +44,21 @@ const ProductDetail = ({ product, relatedProducts }) => {
   }, [sizeIndex, extras, quantity, product.prices, product.isDiscounted, hasMultipleSizes]);
 
   useEffect(() => {
-    if (router.query.edit === 'true') {
-      if (router.query.size) setSizeIndex(Number(router.query.size));
-      if (router.query.notes) setNotes(router.query.notes);
-      if (router.query.whom) setWhom(router.query.whom);
-      if (router.query.quantity) setQuantity(Number(router.query.quantity));
-      if (router.query.extras) {
+    if (routerQuery.edit === 'true') {
+      if (routerQuery.size) setSizeIndex(Number(routerQuery.size));
+      if (routerQuery.notes) setNotes(routerQuery.notes);
+      if (routerQuery.whom) setWhom(routerQuery.whom);
+      if (routerQuery.quantity) setQuantity(Number(routerQuery.quantity));
+      if (routerQuery.extras) {
         try {
-          setExtras(JSON.parse(router.query.extras));
+          setExtras(JSON.parse(routerQuery.extras));
         } catch (e) {
           console.error('Extras parse error', e);
           setExtras([]);
         }
       }
     }
-  }, [router.query]);
+  }, [routerQuery]);
 
   // ---- Handle extras ----
   const handleExtraChange = (e, opt) => {
@@ -82,20 +82,21 @@ const ProductDetail = ({ product, relatedProducts }) => {
         notes,
         whom,
         prices: product.prices || [],
-        update: router.query.edit === 'true',
-        index: router.query.index ? Number(router.query.index) : null, // 🔥 pass index
+        update: routerQuery.edit === 'true',
+        index: routerQuery.index ? Number(routerQuery.index) : null, // 🔥 pass index
       }),
     );
 
     setToastShow(true);
 
     // Clear fields only if not editing
-    if (!router.query.edit) {
+    if (!routerQuery.edit) {
       setNotes('');
       setWhom('');
     } else {
       // redirect to cart after editing
-      router.push('/cart');
+      if (router) router.push('/cart');
+      else if (typeof window !== 'undefined') window.location.assign('/cart');
     }
   };
 
@@ -105,6 +106,7 @@ const ProductDetail = ({ product, relatedProducts }) => {
       <SEO
         title={product.metaTitle || product.title}
         description={product.metaDescription || product.desc}
+        slug={`product/${product._id}`}
         image={product.imgs?.[0] || '/img/placeholder.png'}
         type="product"
         sku={product.sku}

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
@@ -16,8 +16,9 @@ export default function Products() {
   const { copy, language } = useLanguage();
   const categories = getLocalizedCategories(language);
   const services = getLocalizedServices(language);
-  const activeCategory = serviceCategoryOrder.includes(router.query.category)
-    ? router.query.category
+  const categoryQuery = router?.query?.category;
+  const activeCategory = serviceCategoryOrder.includes(categoryQuery)
+    ? categoryQuery
     : 'all';
 
   const filteredServices =
@@ -30,6 +31,7 @@ export default function Products() {
       <SEO
         title={copy.seo.servicesTitle}
         description={copy.seo.defaultDescription}
+        slug="services"
       />
 
       <nav className={styles.breadcrumb} aria-label="Breadcrumb">

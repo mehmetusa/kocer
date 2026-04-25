@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Link from 'next/link';
 import styles from '../styles/Login.module.css';
 
@@ -29,7 +29,8 @@ export default function Signup() {
       } else {
         // Auto login after signup
         await signIn('credentials', { redirect: false, email, password });
-        router.push('/user');
+        if (router) router.push('/user');
+        else if (typeof window !== 'undefined') window.location.assign('/user');
       }
     } catch (err) {
       setError('Something went wrong. Try again.');

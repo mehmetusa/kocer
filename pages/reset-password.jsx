@@ -1,11 +1,15 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Link from 'next/link';
 import styles from '../styles/Login.module.css';
 
 export default function ResetPassword() {
   const router = useRouter();
-  const { token } = router.query;
+  const token =
+    (typeof router?.query?.token === 'string' && router.query.token) ||
+    (typeof window !== 'undefined'
+      ? new URLSearchParams(window.location.search).get('token') || ''
+      : '');
 
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');

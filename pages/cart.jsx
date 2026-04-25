@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Image from 'next/image';
 import { addProduct, removeProduct } from '../redux/cartSlice';
 import styles from '../styles/Cart.module.css';
@@ -11,10 +11,23 @@ export default function Cart() {
   const cart = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const router = useRouter();
+  const navigate = (href, options) => {
+    if (router) {
+      router.push(href, undefined, options);
+      return;
+    }
+    if (typeof window === 'undefined') return;
+    if (typeof href === 'string') {
+      window.location.assign(href);
+      return;
+    }
+    const queryString = href.query ? `?${new URLSearchParams(href.query).toString()}` : '';
+    window.location.assign(`${href.pathname}${queryString}`);
+  };
 
   const handleCheckout = () => {
     if (cart.products.length === 0) return alert('Your cart is empty');
-    router.push('/checkout');
+    navigate('/checkout');
   };
 
   const handleEditItem = (item, newQty, newSize = item.size) => {
@@ -52,7 +65,7 @@ export default function Cart() {
   return (
     <div className={styles.container}>
       <div className={styles.topActions}>
-        <button className={styles.backButton} onClick={() => router.push('/products')}>
+        <button className={styles.backButton} onClick={() => navigate('/products')}>
           <FontAwesomeIcon icon={faArrowLeft} />
         </button>
         <h1 className={styles.title}>Your Order</h1>
@@ -131,7 +144,7 @@ export default function Cart() {
                       <button
                         className={styles.editButton}
                         onClick={() =>
-                          router.push({
+                          navigate({
                             pathname: `/product/${item._id}`,
                             query: {
                               edit: 'true',

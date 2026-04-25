@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { reset } from '../redux/cartSlice';
@@ -29,6 +29,15 @@ export default function Checkout() {
   const user = useSelector((state) => state.user);
   const dispatch = useDispatch();
   const router = useRouter();
+  const navigate = (href) => {
+    if (router) {
+      router.push(href);
+      return;
+    }
+    if (typeof window !== 'undefined') {
+      window.location.assign(href);
+    }
+  };
 
   const subtotal =
     cart.products?.reduce((sum, i) => sum + Number(i.price || 0) * Number(i.quantity || 0), 0) || 0;
@@ -200,7 +209,7 @@ export default function Checkout() {
       else if (res.status === 201) {
         dispatch(reset());
         await persistor.flush();
-        router.push(`/orders/${orderId}`);
+        navigate(`/orders/${orderId}`);
       } else alert('Failed to place order.');
     } catch (err) {
       console.error(err.response?.data || err.message);
@@ -223,7 +232,7 @@ export default function Checkout() {
       <div className={styles.container}>
         {/* Top Bar */}
         <div className={styles.topActions}>
-          <button className={styles.backButton} onClick={() => router.push('/cart')}>
+          <button className={styles.backButton} onClick={() => navigate('/cart')}>
             <FontAwesomeIcon icon={faArrowLeft} />
           </button>
           <h1 className={styles.title}>Checkout</h1>
@@ -251,7 +260,7 @@ export default function Checkout() {
             )}
             <div>
               {!user.isLoggedIn && !isGuest && (
-                <button className={styles.login} onClick={() => router.push('/login')}>
+                <button className={styles.login} onClick={() => navigate('/login')}>
                   Login
                 </button>
               )}

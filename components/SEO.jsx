@@ -1,6 +1,5 @@
 // components/SEO.jsx
 import Head from 'next/head';
-import { useRouter } from 'next/router';
 import { siteConfig } from '../data/siteContent';
 
 export default function SEO({
@@ -14,7 +13,6 @@ export default function SEO({
   currency = 'EUR',
   inStock = true,
 }) {
-  const router = useRouter();
   const baseUrl = siteConfig.siteUrl;
 
   const defaultTitle = siteConfig.legalName;
@@ -25,7 +23,9 @@ export default function SEO({
   const seoDescription = (description || defaultDescription).slice(0, 155);
   const seoImage = image.startsWith('http') ? image : `${baseUrl}${image}`;
 
-  const autoSlug = slug || router.asPath.replace(/^\//, '');
+  const browserPath =
+    typeof window !== 'undefined' ? window.location.pathname.replace(/^\//, '') : '';
+  const autoSlug = slug || browserPath;
   const url = autoSlug ? `${baseUrl}/${autoSlug}` : baseUrl;
 
   let jsonLd = null;

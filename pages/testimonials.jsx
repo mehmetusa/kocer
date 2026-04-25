@@ -8,7 +8,7 @@ export default function Testimonials() {
 
   return (
     <main className={styles.container}>
-      <SEO title={copy.seo.referencesTitle} description={copy.references.intro} />
+      <SEO title={copy.seo.referencesTitle} description={copy.references.intro} slug="testimonials" />
 
       <section className={styles.hero}>
         <p className={styles.eyebrow}>{siteConfig.name}</p>

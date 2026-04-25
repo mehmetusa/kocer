@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import { useDispatch } from 'react-redux';
 import { reset } from '../redux/cartSlice';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -7,22 +7,35 @@ import styles from '../styles/Success.module.css';
 
 export default function SuccessPage() {
   const router = useRouter();
-  const { session_id } = router.query;
   const dispatch = useDispatch();
 
   const [order, setOrder] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [sessionId, setSessionId] = useState('');
 
   useEffect(() => {
-    if (!session_id) return;
+    const routerSessionId = router?.query?.session_id;
+    if (typeof routerSessionId === 'string' && routerSessionId) {
+      setSessionId(routerSessionId);
+      return;
+    }
+
+    if (typeof window !== 'undefined') {
+      const searchSessionId = new URLSearchParams(window.location.search).get('session_id');
+      if (searchSessionId) setSessionId(searchSessionId);
+    }
+  }, [router]);
+
+  useEffect(() => {
+    if (!sessionId) return;
 
     async function verifyAndSaveOrder() {
       try {
         const res = await fetch('/api/stripe/verify-session', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ sessionId: session_id }),
+          body: JSON.stringify({ sessionId }),
         });
 
         if (!res.ok) {
@@ -44,7 +57,7 @@ export default function SuccessPage() {
     }
 
     verifyAndSaveOrder();
-  }, [session_id, dispatch]);
+  }, [sessionId, dispatch]);
 
   if (loading) return <LoadingSpinner message="Verifying payment and saving order..." />;
   if (error) return <h1 className={styles.error}>Error: {error}</h1>;

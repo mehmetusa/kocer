@@ -1,5 +1,5 @@
 import { useSession, signOut } from 'next-auth/react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/compat/router';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from '../../styles/User.module.css';
@@ -28,7 +28,8 @@ export default function UserProfile() {
   useEffect(() => {
     if (status === 'loading') return;
     if (!session || session.user.role !== 'user') {
-      router.replace('/login');
+      if (router) router.replace('/login');
+      else if (typeof window !== 'undefined') window.location.replace('/login');
       return;
     }
 

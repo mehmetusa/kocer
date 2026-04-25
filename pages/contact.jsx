@@ -43,7 +43,7 @@ export default function Contact() {
 
   return (
     <main className={styles.container}>
-      <SEO title={copy.seo.contactTitle} description={copy.contact.intro} />
+      <SEO title={copy.seo.contactTitle} description={copy.contact.intro} slug="contact" />
 
       <section className={styles.hero}>
         <p className={styles.eyebrow}>{siteConfig.name}</p>
