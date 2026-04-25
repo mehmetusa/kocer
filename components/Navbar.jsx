@@ -1,147 +1,137 @@
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useSession, signOut } from 'next-auth/react';
 import {
   FaBars,
   FaTimes,
-  FaBoxOpen,
-  FaConciergeBell,
-  FaEnvelope,
-  FaUser,
-  FaUserShield,
-  FaSignInAlt,
-  FaSignOutAlt,
-  FaShoppingCart,
+  FaArrowRight,
+  FaPhoneAlt,
 } from 'react-icons/fa';
-import { resetUser } from '../redux/userSlice';
 import styles from '../styles/Navbar.module.css';
+import { useLanguage } from '../context/LanguageContext';
+import { siteConfig } from '../data/siteContent';
 
 const Navbar = () => {
-  const quantity = useSelector((state) => state.cart.quantity);
-  const { data: session, status } = useSession();
+  const { language, setLanguage, supportedLanguages, copy } = useLanguage();
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const dispatch = useDispatch();
 
-  const baseMenu = [
-    { href: '/products', icon: <FaBoxOpen />, label: 'Services' },
-    { href: '/testimonials', icon: <FaConciergeBell />, label: 'Testimonials' },
-    { href: '/contact', icon: <FaEnvelope />, label: 'Contact' },
+  const menuItems = [
+    { href: '/services', label: copy.nav.services },
+    { href: '/testimonials', label: copy.nav.references },
+    { href: '/about', label: copy.nav.about },
+    { href: '/contact', label: copy.nav.contact },
   ];
 
-  const authMenu = () => {
-    if (status !== 'authenticated') {
-      return [{ href: '/login', icon: <FaSignInAlt />, label: 'Login' }];
-    }
-
-    const items = [];
-    if (session.user.role === 'admin')
-      items.push({ href: '/admin', icon: <FaUserShield />, label: 'Admin' });
-    else items.push({ href: '/user', icon: <FaUser />, label: 'Account' });
-
-    // Logout as a button
-    items.push({
-      href: '#logout',
-      icon: <FaSignOutAlt />,
-      label: 'Logout',
-      action: () => {
-        dispatch(resetUser()); // 🔥 clear Redux user
-        signOut({ callbackUrl: '/' }); // NextAuth logout
-      },
-    });
-
-    return items;
-  };
-
-  const menuItems = [...baseMenu, ...authMenu()];
-
-  const handleLinkClick = (action) => {
-    if (action) action();
+  const handleLinkClick = () => {
     setDrawerOpen(false);
   };
 
   return (
     <nav className={styles.container}>
-      {/* Mobile hamburger */}
-      <div className={styles.mobileMenuIcon} onClick={() => setDrawerOpen(true)}>
+      <button
+        type="button"
+        className={styles.mobileMenuIcon}
+        onClick={() => setDrawerOpen(true)}
+        aria-label="Open menu"
+      >
         <FaBars size={36} color="#333" />
-      </div>
+      </button>
 
-      {/* Logo */}
       <div className={styles.logoWrapper}>
-        <Link href="/" className={styles.logo}>
-          <Image src="/img/novasepticpumping.png" alt="nova septic pumping Logo" width={100} height={100} />
+        <Link href="/" className={styles.logo} onClick={handleLinkClick}>
+          <span className={styles.logoMark}>KR</span>
+          <span className={styles.logoText}>
+            <strong>Kocer Rohrtechnik</strong>
+            <span>Deutschland</span>
+          </span>
         </Link>
       </div>
 
-      {/* Desktop Links */}
       <ul className={styles.desktopLinks}>
-        {menuItems.map((item) =>
-          item.href === '#logout-mehmet' ? (
-            <li key={item.href} className={styles.linkItem}>
-              <button onClick={item.action} className={styles.linkButton}>
-                {item.icon} {item.label}
-              </button>
-            </li>
-          ) : (
-            <li key={item.href} className={styles.linkItem}>
-              <Link
-                href={item.href}
-                className={styles.link}
-                onClick={() => item.action && item.action()}
-              >
-                {item.icon} {item.label}
-              </Link>
-            </li>
-          ),
-        )}
+        {menuItems.map((item) => (
+          <li key={item.href} className={styles.linkItem}>
+            <Link href={item.href} className={styles.link}>
+              {item.label}
+            </Link>
+          </li>
+        ))}
       </ul>
 
-      {/* Right icons */}
       <div className={styles.rightIcons}>
-        <Link href="/cart" className={styles.cart}>
-          <FaShoppingCart className={styles.cartIcon} size={30} />
-          {quantity > 0 && <div className={styles.counter}>{quantity}</div>}
-        </Link>
+        <div className={styles.languageSwitcher} aria-label="Language switcher">
+          {supportedLanguages.map((option) => (
+            <button
+              key={option.code}
+              type="button"
+              className={`${styles.languageButton} ${
+                language === option.code ? styles.languageButtonActive : ''
+              }`}
+              onClick={() => setLanguage(option.code)}
+            >
+              {option.shortLabel}
+            </button>
+          ))}
+        </div>
 
-        <Link
-          href={
-            status === 'authenticated'
-              ? session.user.role === 'admin'
-                ? '/admin'
-                : '/user'
-              : '/login'
-          }
-          className={styles.accountLinkMobile}
-        >
-          <FaUser className={styles.accountIcon} />
-        </Link>
+        <a href={`tel:${siteConfig.emergencyPhone}`} className={styles.ctaLink}>
+          <FaPhoneAlt />
+          <span>{copy.nav.emergency}</span>
+          <FaArrowRight />
+        </a>
       </div>
 
-      {/* Mobile Overlay */}
       <div
         className={`${styles.overlay} ${drawerOpen ? styles.active : ''}`}
         onClick={() => setDrawerOpen(false)}
       />
 
-      {/* Mobile Drawer */}
       <ul className={`${styles.mobileDrawer} ${drawerOpen ? styles.open : ''}`}>
-        <li className={styles.closeBtn} onClick={() => setDrawerOpen(false)}>
-          <FaTimes size={26} />
+        <li className={styles.mobileDrawerHeader}>
+          <div className={styles.mobileBrand}>
+            <span className={styles.logoMark}>KR</span>
+            <span className={styles.mobileBrandText}>
+              <strong>Kocer Rohrtechnik</strong>
+              <span>Deutschland</span>
+            </span>
+          </div>
+          <button
+            type="button"
+            className={styles.closeBtn}
+            onClick={() => setDrawerOpen(false)}
+            aria-label="Close menu"
+          >
+            <FaTimes size={26} />
+          </button>
         </li>
 
         {menuItems.map((item) => (
-          <li
-            key={item.href}
-            className={styles.linkItem}
-            onClick={() => handleLinkClick(item.action)}
-          >
+          <li key={item.href} className={styles.linkItem} onClick={handleLinkClick}>
             <Link href={item.href} className={styles.link}>
-              {item.icon} {item.label}
+              {item.label}
             </Link>
           </li>
         ))}
+
+        <li className={styles.mobileLanguages}>
+          {supportedLanguages.map((option) => (
+            <button
+              key={option.code}
+              type="button"
+              className={`${styles.languageButton} ${
+                language === option.code ? styles.languageButtonActive : ''
+              }`}
+              onClick={() => setLanguage(option.code)}
+            >
+              {option.label}
+            </button>
+          ))}
+        </li>
+
+        <li className={styles.mobileCta}>
+          <a href={`tel:${siteConfig.emergencyPhone}`} className={styles.ctaLink}>
+            <FaPhoneAlt />
+            <span>{copy.nav.emergency}</span>
+          </a>
+        </li>
       </ul>
     </nav>
   );

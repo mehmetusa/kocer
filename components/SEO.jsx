@@ -1,34 +1,32 @@
 // components/SEO.jsx
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import { siteConfig } from '../data/siteContent';
 
 export default function SEO({
   title,
   description,
   slug = '',
-  image = '/img/novasepticpumping.png',
+  image = '/favicon.ico',
   type = 'website',
   sku,
   price,
-  currency = 'USD',
+  currency = 'EUR',
   inStock = true,
 }) {
   const router = useRouter();
-  const baseUrl = 'https://novasepticpumping.com';
+  const baseUrl = siteConfig.siteUrl;
 
-  // ✅ Fallbacks
-  const defaultTitle = 'NOVA Septic Pumping';
+  const defaultTitle = siteConfig.legalName;
   const defaultDescription =
-    'Septic Pumping Services in Northern Virginia';
+    'Mehrsprachiger Rohr-, Kanal- und Pumpservice in Deutschland fur Absaugung, Inspektionen, Reparaturen und Hochdruckspulung.';
 
   const seoTitle = title || defaultTitle;
   const seoDescription = (description || defaultDescription).slice(0, 155);
 
-  // Auto-generate slug if not provided
   const autoSlug = slug || router.asPath.replace(/^\//, '');
   const url = autoSlug ? `${baseUrl}/${autoSlug}` : baseUrl;
 
-  // Structured Data
   let jsonLd = null;
   if (type === 'product') {
     jsonLd = {
@@ -46,6 +44,21 @@ export default function SEO({
         availability: inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
       },
     };
+  } else if (type === 'service') {
+    jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'Service',
+      serviceType: seoTitle,
+      provider: {
+        '@type': 'Plumber',
+        name: siteConfig.legalName,
+        areaServed: siteConfig.serviceArea,
+        telephone: siteConfig.phone,
+      },
+      description: seoDescription,
+      areaServed: siteConfig.serviceArea,
+      url,
+    };
   } else if (type === 'article') {
     jsonLd = {
       '@context': 'https://schema.org',
@@ -56,40 +69,39 @@ export default function SEO({
       mainEntityOfPage: url,
       author: {
         '@type': 'Organization',
-        name: 'NOVA Septic Pumping',
+        name: siteConfig.legalName,
       },
     };
   } else {
     jsonLd = {
       '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: 'NOVA Septic Pumping',
+      '@type': 'Plumber',
+      name: siteConfig.legalName,
       url: baseUrl,
       description: seoDescription,
+      telephone: siteConfig.phone,
+      email: siteConfig.email,
+      areaServed: siteConfig.serviceArea,
     };
   }
 
   return (
     <Head>
-      {/* Basic SEO */}
       <title>{seoTitle}</title>
       <meta name="description" content={seoDescription} />
       <link rel="canonical" href={url} />
 
-      {/* Open Graph */}
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />
       <meta property="og:image" content={image} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
 
-      {/* Twitter Card */}
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
       <meta name="twitter:image" content={image} />
 
-      {/* JSON-LD Structured Data */}
       {jsonLd && (
         <script
           type="application/ld+json"

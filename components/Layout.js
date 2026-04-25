@@ -1,61 +1,58 @@
 import Footer from './Footer';
 import Navbar from './Navbar';
 import Head from 'next/head';
-import Script from 'next/script';
 import { useRouter } from 'next/router';
+import { useLanguage } from '../context/LanguageContext';
+import { siteConfig } from '../data/siteContent';
 
 const Layout = ({ children, title, description, structuredData }) => {
   const router = useRouter();
-  const siteUrl = 'https://novasepticpumping.com';
+  const { language, copy } = useLanguage();
+  const siteUrl = siteConfig.siteUrl;
+  const seoTitle = title || copy.seo.defaultTitle;
+  const seoDescription = description || copy.seo.defaultDescription;
 
   const defaultStructuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Service',
-    name: 'nova septic pumping',
-    image: `${siteUrl}/img/novasepticpumping.png`,
+    '@type': 'Plumber',
+    name: siteConfig.legalName,
+    image: `${siteUrl}/favicon.ico`,
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '3548 Finish Line Dr',
-      addressLocality: 'Gainesville, VA 20155',
-      addressCountry: 'United States',
+      streetAddress: siteConfig.address.streetAddress,
+      addressLocality: siteConfig.address.addressLocality,
+      addressRegion: siteConfig.address.addressRegion,
+      postalCode: siteConfig.address.postalCode,
+      addressCountry: siteConfig.address.addressCountry,
     },
-    telephone: '(571) 279-0444',
+    areaServed: siteConfig.serviceArea,
+    telephone: siteConfig.phone,
     url: siteUrl,
+    email: siteConfig.email,
+    availableLanguage: ['de', 'tr', 'en'],
   };
 
   return (
     <>
       <Head>
-        {/* Title & Description */}
-        <title>{title ? `${title} | NOVA Septic Pumping` : 'NOVA Septic Pumping'}</title>
-        <meta
-          name="description"
-          content={description || 'Freshly baked savory and pastries every day.'}
-        />
+        <title>{seoTitle}</title>
+        <meta name="description" content={seoDescription} />
+        <html lang={language} />
 
-        {/* Canonical URL */}
         <link rel="canonical" href={`${siteUrl}${router.asPath}`} />
 
-        {/* Open Graph */}
-        <meta property="og:title" content={title || 'NOVA Septic Pumping'} />
-        <meta
-          property="og:description"
-          content={description || 'Freshly baked savory and pastries every day.'}
-        />
-        <meta property="og:image" content={`${siteUrl}/img/novasepticpumping.png`} />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:image" content={`${siteUrl}/favicon.ico`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}${router.asPath}`} />
+        <meta property="og:locale" content={language} />
 
-        {/* Twitter */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={title || 'NOVA Septic Pumping'} />
-        <meta
-          name="twitter:description"
-          content={description || 'Freshly baked savory and pastries every day.'}
-        />
-        <meta name="twitter:image" content={`${siteUrl}/img/novasepticpumping.png`} />
+        <meta name="twitter:title" content={seoTitle} />
+        <meta name="twitter:description" content={seoDescription} />
+        <meta name="twitter:image" content={`${siteUrl}/favicon.ico`} />
 
-        {/* ✅ Structured Data (uses default unless page overrides) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -63,14 +60,6 @@ const Layout = ({ children, title, description, structuredData }) => {
           }}
         />
       </Head>
-
-      {/* Google AdSense */}
-      <Script
-        async
-        strategy="afterInteractive"
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
-        crossOrigin="anonymous"
-      />
 
       <Navbar />
       {children}

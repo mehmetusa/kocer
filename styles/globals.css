@@ -1,0 +1,83 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: var(--sf);
+  background:
+    radial-gradient(circle at top left, rgba(30, 64, 175, 0.08), transparent 28%),
+    radial-gradient(circle at bottom right, rgba(15, 118, 110, 0.12), transparent 26%),
+    linear-gradient(180deg, #f7f7f3 0%, #ffffff 55%, #eef4f5 100%);
+  color: var(--blk);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.container {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Main app container */
+.appContainer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --pc: #f2f7f7;
+  --pc-strong: #dceaea;
+  --sc: #103f57;
+  --sc-soft: #1b5e7e;
+  --accent: #d97706;
+  --accent-soft: #f59e0b;
+  --bc: #ffffff;
+  --lg: #d5dddf;
+  --dg: #62757f;
+  --blk: #17313d;
+  --wht: #ffffff;
+  --ink-soft: #4c616c;
+  --shadow: 0 18px 40px rgba(16, 63, 87, 0.12);
+  --pf: var(--font-heading), 'Space Grotesk', sans-serif;
+  --sf: var(--font-body), 'Manrope', sans-serif;
+  --radius-lg: 28px;
+  --radius-md: 18px;
+}
+
+main {
+  width: 100%;
+}
+
+::selection {
+  background: rgba(217, 119, 6, 0.18);
+}
+
+@media (max-width: 768px) {
+  .appContainer {
+    padding: 0 14px;
+  }
+}

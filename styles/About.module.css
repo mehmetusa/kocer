@@ -1,0 +1,101 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero,
+.story,
+.valuesSection {
+  padding: 30px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  background:
+    radial-gradient(circle at right top, rgba(245, 158, 11, 0.14), transparent 26%),
+    linear-gradient(135deg, rgba(16, 63, 87, 0.96), rgba(27, 94, 126, 0.92));
+  color: var(--wht);
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.valuesSection h2 {
+  margin: 0;
+  font-family: var(--pf);
+}
+
+.hero h1 {
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+}
+
+.hero p:last-child,
+.story p,
+.valueCard p {
+  line-height: 1.85;
+}
+
+.hero p:last-child {
+  margin-top: 16px;
+  max-width: 66ch;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.story p {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.story p + p {
+  margin-top: 18px;
+}
+
+.valuesSection h2 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  color: var(--sc);
+}
+
+.valuesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.valueCard {
+  padding: 22px;
+  border-radius: 24px;
+  background: var(--pc);
+}
+
+.valueCard h3 {
+  margin: 0 0 10px;
+  color: var(--sc);
+}
+
+@media (max-width: 900px) {
+  .valuesGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .story,
+  .valuesSection {
+    padding: 22px 18px;
+  }
+}

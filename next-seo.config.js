@@ -1,5 +1,6 @@
 export default {
-  defaultTitle: 'NOVA Septic Pumping',
-  titleTemplate: '%s | NOVA Septic Pumping',
-  description: 'Septic Pumping Services in Northern Virginia',
+  defaultTitle: 'Kocer Rohrtechnik Deutschland',
+  titleTemplate: '%s | Kocer Rohrtechnik',
+  description:
+    'Mehrsprachiger Rohr-, Kanal- und Pumpservice in Deutschland fur Absaugung, Inspektionen, Reparaturen und Hochdruckspulung.',
 };
