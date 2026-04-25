@@ -4,8 +4,6 @@ import { SessionProvider } from 'next-auth/react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '../redux/store';
-import SEO from '../next-seo.config';
-import { DefaultSeo } from 'next-seo';
 import { LanguageProvider } from '../context/LanguageContext';
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
@@ -14,7 +12,6 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       <div className="appWrapper">
         <div className="appContainer">
           <Layout>
-            <DefaultSeo {...SEO} />
             <Component {...pageProps} />
           </Layout>
         </div>
