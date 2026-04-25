@@ -1,26 +1,22 @@
 import React, { useState } from 'react';
-import { FaPaperPlane, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
+import Image from 'next/image';
+import { FaEnvelope, FaMapMarkerAlt, FaPaperPlane, FaPhoneAlt } from 'react-icons/fa';
+import SEO from '../components/SEO';
+import Toast from '../components/Toast';
+import { useLanguage } from '../context/LanguageContext';
+import { siteConfig } from '../data/siteContent';
 import styles from '../styles/Contact.module.css';
-import Toast from '../components/Toast'; // import the toast component
 
-const Contact = () => {
+export default function Contact() {
+  const { copy } = useLanguage();
   const [toastMessage, setToastMessage] = useState('');
   const [showToast, setShowToast] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: '',
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
 
   const onSubmit = async (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
     form.append('access_key', 'b17b8eac-5062-4afb-b241-a18eabb06b74');
+    form.append('subject', `${siteConfig.name} website enquiry`);
 
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
@@ -31,137 +27,130 @@ const Contact = () => {
       const data = await response.json();
 
       if (data.success) {
-        setToastMessage('✅ Message Submitted Successfully!');
+        setToastMessage(copy.contact.success);
         setShowToast(true);
         event.target.reset();
       } else {
-        console.error('Error', data);
-        setToastMessage(`❌ ${data.message || 'Submission failed'}`);
+        setToastMessage(copy.contact.failure);
         setShowToast(true);
       }
-    } catch (err) {
-      console.error(err);
-      setToastMessage('❌ Submission failed, please try again.');
+    } catch (error) {
+      console.error(error);
+      setToastMessage(copy.contact.failure);
       setShowToast(true);
     }
   };
 
   return (
-    <section className={styles.contactSection} id="contact">
-      <div className={styles.contactContainer}>
-        {/* Contact Info */}
-        <div className={styles.contactInfoMain}>
-          <img className={styles.logoContact} src="/img/novasepticpumping.png" alt="Logo" />
-          <h2>Contact Us</h2>
-          <p>Have questions or ready to schedule service? Reach out today!</p>
+    <main className={styles.container}>
+      <SEO title={copy.seo.contactTitle} description={copy.contact.intro} />
 
-          <div className={styles.contactDetails}>
-            <div className={styles.contactItem}>
-              <FaPhone className={styles.contactIcon} />
-              <span>(571) 279-0444</span>
+      <section className={styles.hero}>
+        <p className={styles.eyebrow}>{siteConfig.name}</p>
+        <h1>{copy.contact.title}</h1>
+        <p>{copy.contact.intro}</p>
+      </section>
+
+      <section className={styles.contactLayout}>
+        <div className={styles.infoColumn}>
+          <div className={styles.brandCard}>
+            <div className={styles.logoWrap}>
+              <Image
+                src={siteConfig.logoPath}
+                alt={siteConfig.name}
+                width={260}
+                height={78}
+                className={styles.logoImage}
+              />
             </div>
-            <div className={styles.contactItem}>
-              <FaEnvelope className={styles.contactIcon} />
-              <span>info@novasepticpumping.com</span>
-            </div>
-            <div className={styles.contactItem}>
-              <FaMapMarkerAlt className={styles.contactIcon} />
-              <span>3548 Finish Line Dr, Gainesville, VA 20155</span>
-            </div>
-            <div className={styles.social}>
-              <a
-                href="https://instagram.com/novasepticpumping"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/instagram.svg"
-                  alt="Instagram"
-                />
-              </a>
-              <a
-                href="https://youtube.com/@novasepticpumping"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/youtube.svg"
-                  alt="YouTube"
-                />
-              </a>
-              <a
-                href="https://facebook.com/novasepticpumping"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img
-                  src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/facebook.svg"
-                  alt="Facebook"
-                />
-              </a>
+            <div>
+              <h2>{copy.footer.contact}</h2>
+              <p>{copy.footer.note}</p>
             </div>
           </div>
+
+          <div className={styles.cardGrid}>
+            {copy.contact.cards.map((card, index) => (
+              <article key={card.title} className={styles.infoCard}>
+                {index === 0 && <FaPhoneAlt className={styles.icon} />}
+                {index === 1 && <FaPhoneAlt className={styles.icon} />}
+                {index === 2 && <FaEnvelope className={styles.icon} />}
+                {index === 3 && <FaMapMarkerAlt className={styles.icon} />}
+                <h3>{card.title}</h3>
+                <p>{card.value}</p>
+              </article>
+            ))}
+          </div>
+
+          <article className={styles.noteCard}>
+            <h3>{copy.contact.noteTitle}</h3>
+            <p>{copy.contact.note}</p>
+          </article>
         </div>
 
-        {/* Contact Form */}
-        <div className={styles.contactFormContainer}>
+        <div className={styles.formColumn}>
           <form className={styles.contactForm} onSubmit={onSubmit}>
-            <div className={styles.formGroup}>
-              <label htmlFor="name">Full Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="John Smith"
-                required
-                onChange={handleChange}
-              />
+            <h2>{copy.contact.formTitle}</h2>
+
+            <div className={styles.formGrid}>
+              <label className={styles.formGroup}>
+                <span>{copy.contact.labels.name}</span>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder={copy.contact.placeholders.name}
+                  required
+                />
+              </label>
+
+              <label className={styles.formGroup}>
+                <span>{copy.contact.labels.email}</span>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder={copy.contact.placeholders.email}
+                  required
+                />
+              </label>
+
+              <label className={styles.formGroup}>
+                <span>{copy.contact.labels.phone}</span>
+                <input
+                  type="text"
+                  name="phone"
+                  placeholder={copy.contact.placeholders.phone}
+                />
+              </label>
+
+              <label className={styles.formGroup}>
+                <span>{copy.contact.labels.service}</span>
+                <input
+                  type="text"
+                  name="service"
+                  placeholder={copy.contact.placeholders.service}
+                />
+              </label>
             </div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="john@example.com"
-                required
-                onChange={handleChange}
-              />
-            </div>
-
-            <div className={styles.formGroup}>
-              <label htmlFor="message">Your Message</label>
+            <label className={styles.formGroup}>
+              <span>{copy.contact.labels.message}</span>
               <textarea
-                id="message"
                 name="message"
-                placeholder="How can we help you?"
-                rows="5"
+                rows="6"
+                placeholder={copy.contact.placeholders.message}
                 required
-                onChange={handleChange}
-              ></textarea>
-            </div>
+              />
+            </label>
 
             <button type="submit" className={styles.submitButton}>
               <FaPaperPlane className={styles.buttonIcon} />
-              Send Message
+              {copy.contact.submit}
             </button>
-
-            <div>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3106.812121084468!2d-77.59952582490976!3d38.859657448931415!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b66851fa190121%3A0xcfdf5d8fd639c96e!2s3548%20Finish%20Line%20Dr%2C%20Gainesville%2C%20VA%2020155!5e0!3m2!1sen!2sus!4v1758906136822!5m2!1sen!2sus"
-                allowfullscreen=""
-                loading="lazy"
-              ></iframe>
-            </div>
           </form>
         </div>
-      </div>
+      </section>
 
-      {/* Toast notification */}
       <Toast message={toastMessage} show={showToast} setShow={setShowToast} />
-    </section>
+    </main>
   );
-};
-
-export default Contact;
+}

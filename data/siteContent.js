@@ -7,15 +7,16 @@ export const supportedLanguages = [
 ];
 
 export const siteConfig = {
-  name: 'Kocer Rohrtechnik',
-  legalName: 'Kocer Rohrtechnik Deutschland',
-  siteUrl: 'https://www.kocer-rohrtechnik.de',
-  phone: '+49 (0)30 5557 1200',
-  emergencyPhone: '+49 (0)30 5557 1212',
-  email: 'info@kocer-rohrtechnik.de',
-  serviceArea: 'Berlin, Brandenburg und ausgewahlte Projekte deutschlandweit',
+  name: 'Kocer Bau',
+  legalName: 'Kocer Bau Deutschland',
+  siteUrl: 'https://www.kocerbau.com',
+  logoPath: '/img/logo.png',
+  phone: '+49 172 7040172',
+  emergencyPhone: '+49 172 7040172',
+  email: 'info@kocerbau.com',
+  serviceArea: 'Berlin, Brandenburg und ausgewahlte Wohnprojekte deutschlandweit',
   address: {
-    streetAddress: 'Vor-Ort-Service nach Terminvereinbarung',
+    streetAddress: 'Vor-Ort-Termine nach Vereinbarung',
     addressLocality: 'Berlin',
     addressRegion: 'Berlin',
     postalCode: '12055',
@@ -25,20 +26,21 @@ export const siteConfig = {
 
 export const serviceCategoryOrder = [
   'all',
-  'pumping',
-  'inspections',
-  'repairs',
-  'greaseTrapCleaning',
-  'hydrojettingRootRemoval',
+  'kitchens',
+  'bathrooms',
+  'painting',
+  'flooring',
+  'interiorFinishing',
+  'fullRemodeling',
 ];
 
 const translations = {
   de: {
     seo: {
-      defaultTitle: 'Kocer Rohrtechnik Deutschland',
+      defaultTitle: 'Kocer Bau Deutschland',
       defaultDescription:
-        'Mehrsprachiger Rohr-, Kanal- und Pumpservice in Deutschland mit Schwerpunkten auf Absaugung, Inspektionen, Reparaturen, Fettabscheider-Reinigung und Hochdruckspulung.',
-      homeTitle: 'Rohr- und Umweltservice fur Deutschland',
+        'Mehrsprachiges Home Remodeling in Deutschland mit Schwerpunkten auf Kuche, Bad, Malerarbeiten, Bodenverlegung, Innenausbau und Komplettsanierung.',
+      homeTitle: 'Home Remodeling fur Deutschland',
       servicesTitle: 'Leistungen',
       aboutTitle: 'Unternehmen',
       contactTitle: 'Kontakt',
@@ -49,154 +51,177 @@ const translations = {
       references: 'Referenzen',
       about: 'Unternehmen',
       contact: 'Kontakt',
-      emergency: '24/7 Notdienst',
+      emergency: 'Beratung anrufen',
     },
     common: {
       learnMore: 'Mehr erfahren',
       requestQuote: 'Angebot anfragen',
       getInTouch: 'Kontakt aufnehmen',
-      emergencyLine: 'Notdienst-Hotline',
+      emergencyLine: 'Beratung & Termine',
+      openMenu: 'Menu offnen',
+      closeMenu: 'Menu schliessen',
+      scrollTop: 'Nach oben',
       categories: 'Kategorien',
       coverage: 'Einsatzgebiet',
       languages: 'Sprachen',
-      serviceHours: 'Bereitschaft',
-      serviceHoursValue: '24/7 fur Storungen und planbare Einsatze',
+      serviceHours: 'Beratungszeiten',
+      serviceHoursValue: 'Mo-Sa fur Beratung, Planung und Vor-Ort-Termine',
     },
     footer: {
       blurb:
-        'Kocer Rohrtechnik betreut Immobilien, Gastronomie, Industrie und Kommunalprojekte mit schneller Einsatzplanung und klarer Dokumentation.',
+        'Kocer Bau modernisiert Wohnungen, Hauser und Anlageobjekte mit klarer Planung, sauberer Ausfuhrung und koordinierter Bauabfolge.',
       navigation: 'Navigation',
       services: 'Leistungen',
       contact: 'Kontakt',
       rights: 'Alle Rechte vorbehalten.',
-      note: 'Mehrsprachiger Service auf Deutsch, Turkisch und Englisch.',
+      note: 'Mehrsprachige Betreuung auf Deutsch, Turkisch und Englisch.',
     },
     home: {
-      badge: '24/7 Notdienst fur dringende Einsatze',
-      title: 'Rohr-, Kanal- und Pumpservice fur Gewerbe, Wohnanlagen und Industrie in Deutschland.',
+      badge: 'Kostenlose Erstberatung fur Renovierungsprojekte',
+      title: 'Home Remodeling fur Kuche, Bad, Farbe und Boden in Deutschland.',
       intro:
-        'Kocer Rohrtechnik verbindet schnelle Einsatze, saubere Ausfuhrung und mehrsprachige Betreuung auf Deutsch, Turkisch und Englisch.',
+        'Kocer Bau begleitet Wohnungs- und Haussanierungen von der ersten Besichtigung bis zur sauberen Ubergabe auf Deutsch, Turkisch und Englisch.',
+      serviceEyebrow: 'Leistungen',
+      reasonsEyebrow: 'Warum Kocer',
+      processEyebrow: 'Ablauf',
+      coverageEyebrow: 'Deutschland',
       primaryCta: 'Leistungen ansehen',
       secondaryCta: 'Kostenlose Anfrage senden',
       stats: [
-        { value: '3', label: 'Sprachen fur Kundenservice' },
-        { value: '< 24h', label: 'Reaktionszeit fur planbare Einsatze' },
-        { value: '24/7', label: 'Notdienst bei akuten Storungen' },
+        { value: '3', label: 'Sprachen fur Beratung und Baukoordination' },
+        { value: '6', label: 'Kernleistungen von Kuche bis Komplettumbau' },
+        { value: 'Mo-Sa', label: 'Planbare Besichtigungen und Projektstarts' },
       ],
-      serviceSectionTitle: 'Leistungen fur jede Entwasserungsaufgabe',
+      serviceSectionTitle: 'Leistungen fur Kuche, Bad, Malerarbeiten, Boden und Innenausbau',
       serviceSectionText:
-        'Von der regelmassigen Absaugung bis zur akuten Verstopfung arbeiten wir mit planbaren Wartungen und belastbaren Einsatzberichten.',
-      reasonsTitle: 'Warum Unternehmen mit Kocer arbeiten',
+        'Wir koordinieren Vorbereitung, Materialabstimmung, Ausfuhrung und finale Details fur Wohnungen, Hauser und Investitionsobjekte.',
+      reasonsTitle: 'Warum Kunden mit Kocer renovieren',
       reasons: [
         {
-          title: 'Klare Einsatzplanung',
-          text: 'Termine, Zugange, Sicherheitsvorgaben und Leistungsumfang werden vorab abgestimmt.',
+          title: 'Klare Bauplanung',
+          text: 'Raume, Gewerke, Materialwunsche und Terminfenster werden strukturiert abgestimmt.',
         },
         {
-          title: 'Dokumentierte Ergebnisse',
-          text: 'Inspektionen, Reinigungen und Reparaturen werden nachvollziehbar fur Eigentumer und Betreiber festgehalten.',
+          title: 'Saubere Ausfuhrung',
+          text: 'Wir arbeiten geordnet vor Ort und achten auf saubere Abschlusse bei Farbe, Boden und Einbauten.',
         },
         {
           title: 'Mehrsprachige Kommunikation',
-          text: 'Vor-Ort-Teams und Ansprechpartner begleiten Projekte auf Deutsch, Turkisch und Englisch.',
+          text: 'Eigentumer, Familien und Projektbeteiligte konnen den Ablauf auf Deutsch, Turkisch und Englisch verfolgen.',
         },
       ],
       processTitle: 'So arbeiten wir',
       process: [
-        { step: '01', title: 'Lage aufnehmen', text: 'Wir prufen Objekt, Dringlichkeit und Zugangssituation.' },
-        { step: '02', title: 'Einsatz planen', text: 'Wir stellen das passende Team samt Fahrzeugen und Technik zusammen.' },
-        { step: '03', title: 'Problem beheben', text: 'Wir reinigen, inspizieren oder reparieren zielgerichtet vor Ort.' },
-        { step: '04', title: 'Bericht ubergeben', text: 'Sie erhalten eine klare Dokumentation mit Empfehlungen fur die Nachsorge.' },
+        {
+          step: '01',
+          title: 'Besichtigung',
+          text: 'Wir schauen uns Raume, Bestand, Stilwunsche und notwendige Leistungen vor Ort an.',
+        },
+        {
+          step: '02',
+          title: 'Angebot & Planung',
+          text: 'Sie erhalten einen klaren Leistungsumfang mit Materialrichtung, Ablauf und Kosteneinschatzung.',
+        },
+        {
+          step: '03',
+          title: 'Ausfuhrung',
+          text: 'Unser Team setzt die vereinbarten Arbeiten sauber und koordiniert um.',
+        },
+        {
+          step: '04',
+          title: 'Abnahme',
+          text: 'Zum Schluss gehen wir alle Details gemeinsam durch und ubergeben das fertige Ergebnis.',
+        },
       ],
       coverageTitle: 'Einsatzgebiet in Deutschland',
       coverageText:
-        'Schwerpunktregionen sind Berlin, Brandenburg und angrenzende Gewerbestandorte. Fur Grosskunden koordinieren wir Einsatze auch standortubergreifend.',
+        'Unser Schwerpunkt liegt auf Berlin und Brandenburg. Fur ausgesuchte Wohn- und Innenausbauprojekte begleiten wir auch weitere Standorte in Deutschland.',
       coverageCards: [
         {
-          title: 'Wohnanlagen',
-          text: 'Planbare Wartung fur Sammelgruben, Leitungen, Hebeanlagen und Notfalleinsatze.',
+          title: 'Wohnungen & Hauser',
+          text: 'Modernisierung von Kuche, Bad, Wanden, Boden und kompletten Wohnbereichen.',
         },
         {
-          title: 'Gastronomie und Handel',
-          text: 'Fettabscheider-Reinigung, Kanalpflege und dokumentierte Serviceintervalle.',
+          title: 'Vermieter & Investoren',
+          text: 'Zuverlassige Auffrischungen und komplette Renovierungen fur Neuvermietung oder Verkauf.',
         },
         {
-          title: 'Industrie und Projekte',
-          text: 'Leistungsstarke Pumptechnik, Hochdruckspulung und koordinierte Reparatureinsatze.',
+          title: 'Kleine Gewerbeflachen',
+          text: 'Innenausbau, Anstrich und Bodenarbeiten fur Ateliers, Studios und Buros.',
         },
       ],
-      finalCtaTitle: 'Schnelle Hilfe fur Abwasser-, Pump- und Rohrsysteme',
+      finalCtaTitle: 'Starten Sie Ihr Umbauprojekt mit einem klaren Plan',
       finalCtaText:
-        'Teilen Sie uns Standort, Dringlichkeit und Objektart mit. Wir melden uns mit einem klaren Vorschlag fur den Einsatz.',
+        'Senden Sie uns Fotos, Raumanzahl und Zieltermin. Wir melden uns mit einer strukturierten Einschatzung und den nachsten Schritten.',
     },
     servicesPage: {
       title: 'Alle Leistungen',
       intro:
-        'Wahlen Sie eine Kategorie oder sehen Sie sich alle Services an. Jede Leistung ist auf Gewerbe, Immobilien und technische Anlagen in Deutschland ausgerichtet.',
+        'Wahlen Sie eine Kategorie oder sehen Sie sich das gesamte Leistungsangebot an. Jede Leistung ist auf hochwertige Innenraum- und Wohnrenovierung in Deutschland ausgerichtet.',
       breadcrumbHome: 'Startseite',
       breadcrumbCurrent: 'Leistungen',
-      sidebarTitle: 'Servicekategorien',
+      sidebarTitle: 'Leistungskategorien',
       empty: 'Fur diese Kategorie sind aktuell keine Leistungen hinterlegt.',
-      cardHighlights: 'Leistungsumfang',
-      cardCta: 'Service anfragen',
+      cardHighlights: 'Typische Inhalte',
+      cardCta: 'Leistung anfragen',
     },
     about: {
       title: 'Unternehmen',
       lead:
-        'Kocer Rohrtechnik ist auf technische Services rund um Abwasser, Rohrsysteme und Pumptechnik spezialisiert. Unser Fokus liegt auf schnellen Entscheidungen vor Ort und sauberer Kommunikation mit Betreibern, Hausverwaltungen und Projektteams.',
+        'Kocer Bau ist auf Home Remodeling und Innenausbau fur Wohnungen, Hauser und kleinere Gewerbeflachen spezialisiert. Unser Fokus liegt auf sauberer Umsetzung, klaren Absprachen und einem stimmigen Endergebnis.',
       paragraphs: [
-        'Wir arbeiten fur Wohnanlagen, gastronomische Betriebe, Produktionsstandorte und gemischt genutzte Immobilien. Dabei setzen wir auf belastbare Einsatzplanung, moderne Technik und nachvollziehbare Ergebnisse statt auf kurzfristige Notlosungen.',
-        'Als Unternehmen mit mehrsprachigem Kundenservice konnen wir Teams auf Deutsch, Turkisch und Englisch begleiten. Das erleichtert Abstimmungen auf Baustellen, in technischen Liegenschaften und in internationalen Betreiberstrukturen.',
+        'Wir betreuen Kuechenmodernisierungen, Badsanierungen, Malerarbeiten, Bodenprojekte und komplette Wohnungsauffrischungen. Dabei koordinieren wir die einzelnen Arbeitsschritte so, dass Kunden den Ablauf nachvollziehen und entspannt entscheiden konnen.',
+        'Als mehrsprachiges Team begleiten wir Projekte auf Deutsch, Turkisch und Englisch. Das hilft Familien, Eigentumern und internationalen Auftraggebern, wenn mehrere Beteiligte in die Renovierung eingebunden sind.',
       ],
       valuesTitle: 'Was uns wichtig ist',
       values: [
         {
-          title: 'Verantwortung im Einsatz',
-          text: 'Wir kommen vorbereitet, arbeiten sauber und halten Sicherheits- und Zugangsregeln ein.',
+          title: 'Zuverlassigkeit',
+          text: 'Wir erscheinen vorbereitet, halten Termine im Blick und kommunizieren fruhzeitig, wenn Entscheidungen anstehen.',
         },
         {
-          title: 'Technische Klarheit',
-          text: 'Vor Ort entscheiden wir pragmatisch, dokumentieren aber immer so, dass Betreiber weiterarbeiten konnen.',
+          title: 'Detailqualitat',
+          text: 'Saubere Kanten, passende Oberflachen und ordentlich ausgefuhrte Abschlusse machen am Ende den Unterschied.',
         },
         {
-          title: 'Langfristige Betreuung',
-          text: 'Viele Kunden nutzen uns nicht nur im Notfall, sondern auch fur wiederkehrende Wartungs- und Reinigungsintervalle.',
+          title: 'Transparente Kommunikation',
+          text: 'Wir erklaren, was gemacht wird, welche Materialien sinnvoll sind und wie der nachste Projektschritt aussieht.',
         },
       ],
     },
     references: {
       title: 'Referenzen',
       intro:
-        'Typische Ruckmeldungen aus Objekten, bei denen Reaktionszeit, Dokumentation und saubere Ausfuhrung entscheidend waren.',
+        'Typische Ruckmeldungen aus Projekten, bei denen Ablauf, Qualitat und Verlasslichkeit besonders wichtig waren.',
       items: [
         {
           quote:
-            'Die Abstimmung auf Deutsch und Turkisch hat unserem Team sehr geholfen. Die Rohrverstopfung wurde in derselben Nacht behoben und sauber dokumentiert.',
-          author: 'Objektleitung, Wohnanlage Berlin',
+            'Unsere Kuche wurde komplett neu gedacht und sauber umgesetzt. Besonders stark war die klare Kommunikation zu Material, Zeitplan und letzten Details.',
+          author: 'Eigentumerfamilie, Berlin Prenzlauer Berg',
         },
         {
           quote:
-            'Fettabscheider-Reinigung, Spulung und Wartungsplan kamen aus einer Hand. Genau diese Struktur brauchten wir fur unseren Gastronomiebetrieb.',
-          author: 'Betriebsleitung, Gastronomiegruppe Potsdam',
+            'Bad, Flur und Boden wurden in einem Durchgang modernisiert. Das Team war strukturiert, freundlich und die Wohnung wurde ordentlich hinterlassen.',
+          author: 'Wohnungseigentumer, Potsdam',
         },
         {
           quote:
-            'Bei der Kamerainspektion wurden die Schadstellen sofort markiert und die Reparatur im Anschluss ohne lange Stillstandszeit ausgefuhrt.',
-          author: 'Technischer Leiter, Gewerbestandort Brandenburg',
+            'Farbkonzept, Boden und Trockenbau passten am Ende perfekt zusammen. Genau diese koordinierte Innenraumrenovierung hatten wir gesucht.',
+          author: 'Investor, Brandenburg Wohnprojekt',
         },
       ],
     },
     contact: {
       title: 'Kontakt',
       intro:
-        'Senden Sie uns Eckdaten zum Standort, zur Storung oder zum geplanten Service. Wir antworten auf Deutsch, Turkisch oder Englisch.',
+        'Senden Sie uns Eckdaten zu Raumen, gewunschten Arbeiten und Ihrem Zeitplan. Wir antworten auf Deutsch, Turkisch oder Englisch.',
       cards: [
         { title: 'Telefon', value: siteConfig.phone },
-        { title: 'Notdienst', value: siteConfig.emergencyPhone },
+        { title: 'Beratung', value: siteConfig.emergencyPhone },
         { title: 'E-Mail', value: siteConfig.email },
         { title: 'Einsatzgebiet', value: siteConfig.serviceArea },
       ],
-      formTitle: 'Projekt oder Storung beschreiben',
+      formTitle: 'Projekt beschreiben',
       labels: {
         name: 'Name',
         email: 'E-Mail',
@@ -208,8 +233,9 @@ const translations = {
         name: 'Name oder Firma',
         email: 'name@firma.de',
         phone: '+49 ...',
-        service: 'z. B. Fettabscheider-Reinigung',
-        message: 'Was ist passiert, wo befindet sich das Objekt und wie dringend ist der Einsatz?',
+        service: 'z. B. Kuechenrenovierung',
+        message:
+          'Welche Raume sollen renoviert werden, was ist Ihr Stilwunsch und wann mochten Sie starten?',
       },
       submit: 'Anfrage senden',
       success: 'Ihre Anfrage wurde erfolgreich gesendet.',
@@ -220,19 +246,20 @@ const translations = {
     },
     serviceDetail: {
       back: 'Zuruck zu allen Leistungen',
-      highlights: 'Typische Einsatzschwerpunkte',
-      ctaTitle: 'Leistung fur Ihr Objekt anfragen',
+      highlights: 'Typische Projektinhalte',
+      relatedTitle: 'Weitere Leistungen',
+      ctaTitle: 'Leistung fur Ihr Projekt anfragen',
       ctaText:
-        'Nennen Sie uns Standort, Objektart und Dringlichkeit. Wir melden uns mit einem passenden Einsatzvorschlag.',
+        'Nennen Sie uns Raumtyp, Umfang und Zieltermin. Wir melden uns mit einer passenden Einschatzung und dem moglichen Ablauf.',
       ctaButton: 'Kontaktformular offnen',
     },
   },
   tr: {
     seo: {
-      defaultTitle: 'Kocer Rohrtechnik Almanya',
+      defaultTitle: 'Kocer Bau Almanya',
       defaultDescription:
-        'Almanya genelinde pompalama, inceleme, onarim, yag tutucu temizligi ve yuksek basincli kanal acma hizmetleri sunan cok dilli boru ve atiksu servisi.',
-      homeTitle: 'Almanya Icin Boru ve Cevre Hizmetleri',
+        'Almanya genelinde mutfak, banyo, boya, zemin, ic mekan ince isler ve komple tadilat alanlarinda hizmet veren cok dilli home remodeling sirketi.',
+      homeTitle: 'Almanya Icin Home Remodeling',
       servicesTitle: 'Hizmetler',
       aboutTitle: 'Sirket',
       contactTitle: 'Iletisim',
@@ -243,154 +270,177 @@ const translations = {
       references: 'Referanslar',
       about: 'Sirket',
       contact: 'Iletisim',
-      emergency: '7/24 Acil Hat',
+      emergency: 'Danismanlik icin ara',
     },
     common: {
       learnMore: 'Detaylari gor',
       requestQuote: 'Teklif iste',
       getInTouch: 'Iletisime gec',
-      emergencyLine: 'Acil servis hatti',
+      emergencyLine: 'Danismanlik ve randevu',
+      openMenu: 'Menuyu ac',
+      closeMenu: 'Menuyu kapat',
+      scrollTop: 'Yukari cik',
       categories: 'Kategoriler',
       coverage: 'Hizmet alani',
       languages: 'Diller',
-      serviceHours: 'Calisma duzeni',
-      serviceHoursValue: 'Ariza ve planli servisler icin 7/24',
+      serviceHours: 'Danismanlik saatleri',
+      serviceHoursValue: 'Pzt-Cmt planlama, kesif ve proje gorusmeleri',
     },
     footer: {
       blurb:
-        'Kocer Rohrtechnik; gayrimenkul, gastronomi, sanayi ve belediye projeleri icin hizli planlama ve net raporlama sunar.',
+        'Kocer Bau daire, ev ve yatirim mulklerini net planlama, temiz uygulama ve uyumlu ekip koordinasyonuyla yeniler.',
       navigation: 'Navigasyon',
       services: 'Hizmetler',
       contact: 'Iletisim',
       rights: 'Tum haklari saklidir.',
-      note: 'Almanca, Turkce ve Ingilizce hizmet veriyoruz.',
+      note: 'Almanca, Turkce ve Ingilizce destek veriyoruz.',
     },
     home: {
-      badge: 'Acil durumlar icin 7/24 servis',
-      title: 'Almanya genelinde ticari yapilar, konut siteleri ve sanayi icin boru, kanal ve pompa hizmetleri.',
+      badge: 'Tadilat projeleri icin ucretsiz ilk gorusme',
+      title: 'Almanya genelinde mutfak, banyo, boya ve zemin odakli home remodeling hizmetleri.',
       intro:
-        'Kocer Rohrtechnik hizli mudahale, temiz uygulama ve Almanca, Turkce, Ingilizce musteri destegini bir araya getirir.',
+        'Kocer Bau, daire ve ev yenilemelerini ilk kesiften temiz teslimata kadar Almanca, Turkce ve Ingilizce olarak yonetir.',
+      serviceEyebrow: 'Hizmetler',
+      reasonsEyebrow: 'Neden Kocer',
+      processEyebrow: 'Surec',
+      coverageEyebrow: 'Almanya',
       primaryCta: 'Hizmetleri incele',
       secondaryCta: 'Ucretsiz talep gonder',
       stats: [
-        { value: '3', label: 'musteri hizmet dili' },
-        { value: '< 24s', label: 'planli islerde geri donus suresi' },
-        { value: '7/24', label: 'acil ariza destegi' },
+        { value: '3', label: 'danismanlik ve proje koordinasyon dili' },
+        { value: '6', label: 'mutfaktan komple tadilata uzanan ana hizmet' },
+        { value: 'Pzt-Cmt', label: 'kesif ve proje planlama gunleri' },
       ],
-      serviceSectionTitle: 'Her atiksu gorevi icin hizmet',
+      serviceSectionTitle: 'Mutfak, banyo, boya, zemin ve ic mekan yenileme hizmetleri',
       serviceSectionText:
-        'Duzenli pompalamadan acil tikanikliklara kadar bakim, temizlik ve onarimlari raporlanabilir bir sistemle yonetiyoruz.',
-      reasonsTitle: 'Firmalar neden Kocer ile calisiyor',
+        'Hazirlik, malzeme secimi, uygulama ve son detaylari daireler, evler ve yatirim projeleri icin tek akista koordine ediyoruz.',
+      reasonsTitle: 'Musteriler neden Kocer ile yeniliyor',
       reasons: [
         {
-          title: 'Net operasyon plani',
-          text: 'Randevu, erisim, guvenlik ve kapsam ekip gelmeden once netlestirilir.',
+          title: 'Net proje plani',
+          text: 'Alanlar, is kalemleri, malzeme tercihleri ve tarih araliklari acik sekilde belirlenir.',
         },
         {
-          title: 'Belgelenmis sonuc',
-          text: 'Inceleme, temizlik ve onarim sonuclari yonetici ve isletmecilere acik sekilde iletilir.',
+          title: 'Temiz uygulama',
+          text: 'Boyadan zemine kadar duzenli, ozenli ve mekanin son gorunumune yakisan bir uygulama sunariz.',
         },
         {
           title: 'Cok dilli iletisim',
-          text: 'Saha ekipleri ve operasyon yoneticileri Almanca, Turkce ve Ingilizce destek verir.',
+          text: 'Ev sahipleri ve aileler sureci Almanca, Turkce ve Ingilizce takip edebilir.',
         },
       ],
       processTitle: 'Nasil calisiyoruz',
       process: [
-        { step: '01', title: 'Durumu analiz ederiz', text: 'Mulk, aciliyet ve erisim kosullari incelenir.' },
-        { step: '02', title: 'Ekibi planlariz', text: 'Araca ve teknik ekipmana gore en uygun saha ekibi atanir.' },
-        { step: '03', title: 'Sorunu gideririz', text: 'Yerinde temizlik, goruntuleme veya onarim uygulanir.' },
-        { step: '04', title: 'Rapor teslim ederiz', text: 'Yapilan is ve sonraki adimlar acik bir raporla sunulur.' },
+        {
+          step: '01',
+          title: 'Kesif',
+          text: 'Mekani, mevcut durumu, stil beklentisini ve gerekli is kalemlerini yerinde inceleriz.',
+        },
+        {
+          step: '02',
+          title: 'Teklif ve planlama',
+          text: 'Is kapsami, malzeme yonu, akıs ve maliyet cercevesi netlestirilir.',
+        },
+        {
+          step: '03',
+          title: 'Uygulama',
+          text: 'Ekibimiz anlasilan isleri temiz ve koordineli sekilde hayata gecirir.',
+        },
+        {
+          step: '04',
+          title: 'Teslim',
+          text: 'Son kontroller yapilir ve tamamlanan alanlar birlikte gozden gecirilir.',
+        },
       ],
       coverageTitle: 'Almanya hizmet alani',
       coverageText:
-        'Ana bolgelerimiz Berlin, Brandenburg ve yakin ticari bolgelerdir. Buyuk musteriler icin farkli lokasyonlari da koordine ediyoruz.',
+        'Ana calisma alanimiz Berlin ve Brandenburg. Secili konut ve ic mekan projeleri icin Almanya genelinde de koordinasyon sagliyoruz.',
       coverageCards: [
         {
-          title: 'Konut siteleri',
-          text: 'Toplama cukurlari, hatlar, pompa sistemleri ve acil durumlar icin planli bakim.',
+          title: 'Daireler ve evler',
+          text: 'Mutfak, banyo, duvar, zemin ve tam yasam alani yenilemeleri.',
         },
         {
-          title: 'Restoran ve perakende',
-          text: 'Yag tutucu temizligi, kanal bakimi ve raporlanabilir servis periyotlari.',
+          title: 'Ev sahipleri ve yatirimcilar',
+          text: 'Kiraya verme veya satis oncesi guvenilir yenileme ve deger artisi odakli isler.',
         },
         {
-          title: 'Sanayi ve projeler',
-          text: 'Guclu pompa ekipmani, yuksek basincli temizlik ve koordineli onarim hizmetleri.',
+          title: 'Kucuk ticari alanlar',
+          text: 'Studiolar, ofisler ve butik mekanlar icin ic mekan uygulamalari.',
         },
       ],
-      finalCtaTitle: 'Atiksu, pompa ve boru sistemleri icin hizli destek',
+      finalCtaTitle: 'Tadilat projenizi net bir planla baslatin',
       finalCtaText:
-        'Konum, aciliyet ve tesis tipini paylasin. Size uygun operasyon onerisiyle hizla donelim.',
+        'Bize fotograflari, oda sayisini ve hedef tarihinizi gonderin. Size duzenli bir ilk degerlendirme ile donelim.',
     },
     servicesPage: {
       title: 'Tum hizmetler',
       intro:
-        'Bir kategori secin veya tum hizmetleri gorun. Her hizmet Almanya genelindeki ticari yapilar, teknik tesisler ve gayrimenkuller icin planlandi.',
+        'Bir kategori secin veya tum hizmetleri gorun. Her hizmet Almanya odakli konut yenileme ve ic mekan tadilatina gore hazirlandi.',
       breadcrumbHome: 'Ana sayfa',
       breadcrumbCurrent: 'Hizmetler',
       sidebarTitle: 'Hizmet kategorileri',
       empty: 'Bu kategori icin henuz bir hizmet bulunmuyor.',
-      cardHighlights: 'Kapsam',
+      cardHighlights: 'Tipik kapsam',
       cardCta: 'Hizmet talep et',
     },
     about: {
       title: 'Sirket',
       lead:
-        'Kocer Rohrtechnik, atiksu sistemleri, boru altyapisi ve pompa teknolojisi etrafindaki teknik hizmetlere odaklanir. Hedefimiz sahada hizli karar almak ve yoneticilerle acik iletisim kurmaktir.',
+        'Kocer Bau; daire, ev ve kucuk ticari alanlar icin home remodeling ve ic mekan yenileme hizmetlerinde uzmanlasmistir. Temiz uygulama, net anlasma ve dengeli son gorunum bizim icin temel onceliktir.',
       paragraphs: [
-        'Konut siteleri, restoranlar, uretim tesisleri ve karma kullanimli gayrimenkuller icin calisiyoruz. Gecici cozumler yerine iyi planlanmis, teknik olarak guvenilir ve olculebilir isler sunuyoruz.',
-        'Cok dilli musteri destegimiz sayesinde sahadaki ekipler, teknik yoneticiler ve uluslararasi operatorler Almanca, Turkce ve Ingilizce olarak ayni sureci takip edebilir.',
+        'Mutfak yenilemeleri, banyo donusumleri, boya isleri, zemin uygulamalari ve komple ic mekan duzenlemeleri yurutuyoruz. Her adimi musterinin ne oldugunu anlayacagi sekilde planliyoruz.',
+        'Cok dilli ekibimiz sayesinde aileler, ev sahipleri ve uluslararasi musteriler projeyi Almanca, Turkce ve Ingilizce olarak rahatca takip edebilir.',
       ],
       valuesTitle: 'Bizim icin onemli olanlar',
       values: [
         {
-          title: 'Sahada sorumluluk',
-          text: 'Hazir gelir, temiz calisir ve guvenlik ile erisim kurallarina uyariz.',
+          title: 'Guvenilirlik',
+          text: 'Hazir gelir, tarihleri takip eder ve karar gerektiren noktalari zamaninda paylasiriz.',
         },
         {
-          title: 'Teknik netlik',
-          text: 'Kararlari pratik aliriz ama isletmecilerin kullanabilecegi sekilde her seyi raporlariz.',
+          title: 'Detay kalitesi',
+          text: 'Temiz kenarlar, dogru yuzey secimi ve duzenli bitisler son gorunumun kalitesini belirler.',
         },
         {
-          title: 'Uzun vadeli destek',
-          text: 'Bir cok musteri bizi sadece acil durumda degil, periyodik bakim ve temizliklerde de tercih eder.',
+          title: 'Acik iletisim',
+          text: 'Ne yapildigini, hangi malzemelerin uygun oldugunu ve sonraki adimi net sekilde aciklariz.',
         },
       ],
     },
     references: {
       title: 'Referanslar',
       intro:
-        'Hizli reaksiyon, net raporlama ve temiz uygulamanin kritik oldugu tipik geri bildirimler.',
+        'Takvim, kalite ve guvenilirligin belirleyici oldugu tipik proje geri bildirimleri.',
       items: [
         {
           quote:
-            'Almanca ve Turkce koordinasyon bizim ekibimiz icin buyuk kolaylik sagladi. Boru tikanikligi ayni gece cozuldu ve net sekilde raporlandi.',
-          author: 'Site yonetimi, Berlin konut projesi',
+            'Mutfagimiz bastan sona yenilendi ve her adim net anlatildi. Malzeme seciminden son detaylara kadar ekip cok duzenliydi.',
+          author: 'Aile evi, Berlin',
         },
         {
           quote:
-            'Yag tutucu temizligi, kanal yikama ve bakim plani tek elde toplandi. Isletmemiz icin tam olarak aradigimiz yapi buydu.',
-          author: 'Operasyon yoneticisi, Potsdam restoran grubu',
+            'Banyo, koridor ve zemin ayni proje icinde modernize edildi. Is bitiminde mekan tertemizdi ve sonuc tam istedigimiz gibiydi.',
+          author: 'Daire sahibi, Potsdam',
         },
         {
           quote:
-            'Kamera incelemesinde hasar noktalar hemen tespit edildi ve onarim uzun durus yasanmadan tamamlandi.',
-          author: 'Teknik mudur, Brandenburg ticari tesis',
+            'Boya, zemin ve ic mekan bitisleri birbiriyle uyumlu oldu. Koordineli tadilat tam olarak aradigimiz seydi.',
+          author: 'Yatirimci, Brandenburg konut projesi',
         },
       ],
     },
     contact: {
       title: 'Iletisim',
       intro:
-        'Lokasyon, ariza veya planli hizmet detaylarini bize iletin. Size Almanca, Turkce veya Ingilizce donelim.',
+        'Alanlar, istediginiz is kapsamı ve hedef tarihinizle ilgili bilgileri bize iletin. Size Almanca, Turkce veya Ingilizce donelim.',
       cards: [
         { title: 'Telefon', value: siteConfig.phone },
-        { title: 'Acil servis', value: siteConfig.emergencyPhone },
+        { title: 'Danismanlik', value: siteConfig.emergencyPhone },
         { title: 'E-posta', value: siteConfig.email },
         { title: 'Hizmet alani', value: siteConfig.serviceArea },
       ],
-      formTitle: 'Proje veya arizayi anlatin',
+      formTitle: 'Projeyi anlatin',
       labels: {
         name: 'Ad',
         email: 'E-posta',
@@ -402,8 +452,9 @@ const translations = {
         name: 'Ad veya firma',
         email: 'ad@firma.de',
         phone: '+49 ...',
-        service: 'ornegin yag tutucu temizligi',
-        message: 'Ne oldu, tesis nerede ve ne kadar acil?',
+        service: 'ornegin mutfak yenileme',
+        message:
+          'Hangi alanlar yenilenecek, nasil bir stil istiyorsunuz ve ne zaman baslamak istiyorsunuz?',
       },
       submit: 'Talebi gonder',
       success: 'Talebiniz basariyla gonderildi.',
@@ -414,19 +465,20 @@ const translations = {
     },
     serviceDetail: {
       back: 'Tum hizmetlere don',
-      highlights: 'Tipik uygulama alanlari',
+      highlights: 'Tipik proje kapsami',
+      relatedTitle: 'Diger hizmetler',
       ctaTitle: 'Bu hizmet icin talep gonderin',
       ctaText:
-        'Konum, tesis tipi ve aciliyet bilgisini paylasin. Size uygun saha planiyla hizla donelim.',
+        'Alan tipi, is kapsamı ve istediginiz tarih bilgisini paylasin. Uygun yol haritasiyla size donelim.',
       ctaButton: 'Iletisim formunu ac',
     },
   },
   en: {
     seo: {
-      defaultTitle: 'Kocer Rohrtechnik Germany',
+      defaultTitle: 'Kocer Bau Germany',
       defaultDescription:
-        'Multilingual wastewater, pipe and pumping services in Germany covering pumping, inspections, repairs, grease trap cleaning and hydrojetting.',
-      homeTitle: 'Pipe and Environmental Services for Germany',
+        'Multilingual home remodeling in Germany covering kitchens, bathrooms, painting, flooring, interior finishing and full renovations.',
+      homeTitle: 'Home Remodeling for Germany',
       servicesTitle: 'Services',
       aboutTitle: 'Company',
       contactTitle: 'Contact',
@@ -437,22 +489,25 @@ const translations = {
       references: 'References',
       about: 'Company',
       contact: 'Contact',
-      emergency: '24/7 Emergency',
+      emergency: 'Call for consultation',
     },
     common: {
       learnMore: 'Learn more',
       requestQuote: 'Request a quote',
       getInTouch: 'Get in touch',
-      emergencyLine: 'Emergency hotline',
+      emergencyLine: 'Consultation and scheduling',
+      openMenu: 'Open menu',
+      closeMenu: 'Close menu',
+      scrollTop: 'Scroll to top',
       categories: 'Categories',
       coverage: 'Coverage',
       languages: 'Languages',
-      serviceHours: 'Availability',
-      serviceHoursValue: '24/7 for incidents and scheduled service',
+      serviceHours: 'Consultation hours',
+      serviceHoursValue: 'Mon-Sat for planning, visits and project discussions',
     },
     footer: {
       blurb:
-        'Kocer Rohrtechnik supports property, hospitality, industrial and municipal clients with fast deployment planning and clear reporting.',
+        'Kocer Bau refreshes apartments, houses and investment properties with clear planning, clean execution and coordinated trades.',
       navigation: 'Navigation',
       services: 'Services',
       contact: 'Contact',
@@ -460,131 +515,151 @@ const translations = {
       note: 'Service available in German, Turkish and English.',
     },
     home: {
-      badge: '24/7 emergency support for urgent incidents',
-      title: 'Pipe, drainage and pumping services for commercial sites, residential portfolios and industry in Germany.',
+      badge: 'Free first consultation for remodeling projects',
+      title: 'Home remodeling for kitchens, bathrooms, paint and flooring in Germany.',
       intro:
-        'Kocer Rohrtechnik combines rapid deployment, clean execution and multilingual customer support in German, Turkish and English.',
+        'Kocer Bau manages apartment and house renovations from the first site visit to the final clean handover in German, Turkish and English.',
+      serviceEyebrow: 'Services',
+      reasonsEyebrow: 'Why Kocer',
+      processEyebrow: 'Process',
+      coverageEyebrow: 'Germany',
       primaryCta: 'Explore services',
       secondaryCta: 'Send a free enquiry',
       stats: [
-        { value: '3', label: 'service languages' },
-        { value: '< 24h', label: 'response time for scheduled work' },
-        { value: '24/7', label: 'emergency incident cover' },
+        { value: '3', label: 'languages for consultation and project coordination' },
+        { value: '6', label: 'core services from kitchens to full remodeling' },
+        { value: 'Mon-Sat', label: 'planned site visits and project starts' },
       ],
-      serviceSectionTitle: 'Services for every drainage task',
+      serviceSectionTitle: 'Services for kitchens, bathrooms, painting, flooring and interior finishing',
       serviceSectionText:
-        'From recurring pumping to urgent blockages, we deliver maintenance, cleaning and repair work with documented outcomes.',
-      reasonsTitle: 'Why clients work with Kocer',
+        'We coordinate preparation, materials, execution and final detailing for apartments, houses and investment properties.',
+      reasonsTitle: 'Why clients remodel with Kocer',
       reasons: [
         {
-          title: 'Clear deployment planning',
-          text: 'Access, safety requirements, scheduling and scope are aligned before arrival.',
+          title: 'Clear project planning',
+          text: 'Rooms, scope, material choices and timing windows are aligned in a practical way.',
         },
         {
-          title: 'Documented results',
-          text: 'Inspections, cleaning and repairs are recorded clearly for owners, operators and technical teams.',
+          title: 'Clean execution',
+          text: 'We care about the finish, from neat paint lines to flooring transitions and fitted details.',
         },
         {
           title: 'Multilingual communication',
-          text: 'Field teams and coordinators support projects in German, Turkish and English.',
+          text: 'Owners, families and project stakeholders can follow the work in German, Turkish and English.',
         },
       ],
       processTitle: 'How we work',
       process: [
-        { step: '01', title: 'Assess the situation', text: 'We review the site, urgency and access requirements.' },
-        { step: '02', title: 'Plan the deployment', text: 'We assign the right crew, vehicles and equipment.' },
-        { step: '03', title: 'Resolve the issue', text: 'We clean, inspect or repair with a site-specific approach.' },
-        { step: '04', title: 'Deliver the report', text: 'You receive clear documentation and next-step recommendations.' },
+        {
+          step: '01',
+          title: 'Site visit',
+          text: 'We review the rooms, existing condition, style goals and required work on site.',
+        },
+        {
+          step: '02',
+          title: 'Proposal and planning',
+          text: 'You receive a clear scope, material direction, timing and guidance on budget.',
+        },
+        {
+          step: '03',
+          title: 'Execution',
+          text: 'Our team carries out the agreed work with a coordinated and tidy process.',
+        },
+        {
+          step: '04',
+          title: 'Final handover',
+          text: 'We walk through the finished spaces together and close out the remaining details.',
+        },
       ],
       coverageTitle: 'Coverage across Germany',
       coverageText:
-        'Our core service area is Berlin, Brandenburg and nearby commercial zones. For larger clients, we also coordinate multi-site work across Germany.',
+        'Our core focus is Berlin and Brandenburg. For selected residential and interior remodeling projects, we also coordinate work in other parts of Germany.',
       coverageCards: [
         {
-          title: 'Residential portfolios',
-          text: 'Scheduled maintenance for holding tanks, lines, lifting stations and emergency incidents.',
+          title: 'Apartments and houses',
+          text: 'Modernization of kitchens, bathrooms, walls, floors and complete living areas.',
         },
         {
-          title: 'Hospitality and retail',
-          text: 'Grease trap cleaning, drainage maintenance and documented service intervals.',
+          title: 'Landlords and investors',
+          text: 'Reliable refreshes and full renovations for reletting, resale or property upgrades.',
         },
         {
-          title: 'Industrial and project work',
-          text: 'High-capacity pumping, hydrojetting and coordinated repair deployments.',
+          title: 'Small commercial interiors',
+          text: 'Interior upgrades, paint and flooring for studios, offices and boutique spaces.',
         },
       ],
-      finalCtaTitle: 'Fast support for wastewater, pumping and pipe systems',
+      finalCtaTitle: 'Start your remodeling project with a clear plan',
       finalCtaText:
-        'Share your location, urgency and site type. We will come back with a clear deployment proposal.',
+        'Send us photos, room count and your target date. We will reply with a structured first assessment and next steps.',
     },
     servicesPage: {
       title: 'All services',
       intro:
-        'Choose a category or browse everything. Every service is shaped for commercial sites, technical facilities and property operations in Germany.',
+        'Choose a category or browse the full offer. Every service is built around high-quality interior and residential remodeling in Germany.',
       breadcrumbHome: 'Home',
       breadcrumbCurrent: 'Services',
       sidebarTitle: 'Service categories',
       empty: 'There are currently no services in this category.',
-      cardHighlights: 'Scope',
+      cardHighlights: 'Typical scope',
       cardCta: 'Request service',
     },
     about: {
       title: 'Company',
       lead:
-        'Kocer Rohrtechnik focuses on technical services around wastewater systems, drainage infrastructure and pumping technology. We care about fast site decisions and clear communication with operators, property managers and project teams.',
+        'Kocer Bau specializes in home remodeling and interior renovation for apartments, houses and smaller commercial spaces. We focus on clean execution, clear decisions and a finished result that feels cohesive.',
       paragraphs: [
-        'We support residential portfolios, hospitality venues, production sites and mixed-use properties. Our goal is not a temporary fix but a well-planned, technically reliable service outcome.',
-        'Because our customer support is multilingual, project teams can work with us in German, Turkish and English across active sites, technical facilities and international operating structures.',
+        'We handle kitchen upgrades, bathroom remodels, painting, flooring and full interior refresh projects. Every stage is planned so the client understands what is happening and what comes next.',
+        'Because our support is multilingual, families, owners and international clients can stay aligned in German, Turkish and English throughout the renovation.',
       ],
       valuesTitle: 'What matters to us',
       values: [
         {
-          title: 'Responsibility on site',
-          text: 'We arrive prepared, work cleanly and follow access and safety rules.',
+          title: 'Reliability',
+          text: 'We show up prepared, keep timing visible and communicate early when decisions are needed.',
         },
         {
-          title: 'Technical clarity',
-          text: 'We make pragmatic decisions in the field while documenting the work in a useful way.',
+          title: 'Detail quality',
+          text: 'Clean edges, balanced surfaces and tidy finishing details are what make the final rooms feel complete.',
         },
         {
-          title: 'Long-term support',
-          text: 'Many clients rely on us not only in emergencies but for recurring maintenance and cleaning cycles.',
+          title: 'Transparent communication',
+          text: 'We explain what is being done, which materials make sense and what the next project step looks like.',
         },
       ],
     },
     references: {
       title: 'References',
       intro:
-        'Typical feedback from sites where response time, reporting and clean execution were essential.',
+        'Typical feedback from projects where timing, finish quality and reliability mattered most.',
       items: [
         {
           quote:
-            'Coordination in German and Turkish made the whole process easier for our staff. The blockage was cleared the same night and properly documented.',
-          author: 'Property management, Berlin residential site',
+            'Our kitchen was reworked from start to finish and every step was explained clearly. The team was especially strong on materials, schedule and final detailing.',
+          author: 'Homeowner family, Berlin',
         },
         {
           quote:
-            'Grease trap cleaning, flushing and our maintenance plan were handled by one team. That structure was exactly what our operation needed.',
-          author: 'Operations lead, Potsdam hospitality group',
+            'The bathroom, hallway and flooring were modernized as one project. The crew stayed organized and left the apartment in very good shape.',
+          author: 'Apartment owner, Potsdam',
         },
         {
           quote:
-            'The camera inspection identified the damage points immediately and the repair was completed without a long shutdown.',
-          author: 'Technical manager, Brandenburg commercial facility',
+            'Paint, flooring and interior finishing all matched beautifully in the end. That coordinated remodeling approach was exactly what we needed.',
+          author: 'Investor, Brandenburg residential project',
         },
       ],
     },
     contact: {
       title: 'Contact',
       intro:
-        'Send us the core details about your site, incident or planned service. We will reply in German, Turkish or English.',
+        'Send us the key details about your rooms, desired work and timing. We will reply in German, Turkish or English.',
       cards: [
         { title: 'Phone', value: siteConfig.phone },
-        { title: 'Emergency', value: siteConfig.emergencyPhone },
+        { title: 'Consultation', value: siteConfig.emergencyPhone },
         { title: 'Email', value: siteConfig.email },
         { title: 'Coverage', value: siteConfig.serviceArea },
       ],
-      formTitle: 'Describe the project or incident',
+      formTitle: 'Describe the project',
       labels: {
         name: 'Name',
         email: 'Email',
@@ -596,8 +671,9 @@ const translations = {
         name: 'Name or company',
         email: 'name@company.com',
         phone: '+49 ...',
-        service: 'for example grease trap cleaning',
-        message: 'What happened, where is the site and how urgent is the request?',
+        service: 'for example kitchen remodeling',
+        message:
+          'Which rooms should be remodeled, what style are you aiming for and when would you like to start?',
       },
       submit: 'Send enquiry',
       success: 'Your enquiry was sent successfully.',
@@ -608,10 +684,11 @@ const translations = {
     },
     serviceDetail: {
       back: 'Back to all services',
-      highlights: 'Typical service focus',
-      ctaTitle: 'Request this service for your site',
+      highlights: 'Typical project scope',
+      relatedTitle: 'More services',
+      ctaTitle: 'Request this service for your project',
       ctaText:
-        'Share your location, asset type and urgency. We will reply with a suitable deployment plan.',
+        'Share the room type, work scope and target date. We will reply with a practical first assessment and next steps.',
       ctaButton: 'Open contact form',
     },
   },
@@ -620,178 +697,181 @@ const translations = {
 const categoryLabels = {
   de: {
     all: 'Alle Leistungen',
-    pumping: 'Absaugung',
-    inspections: 'Inspektionen',
-    repairs: 'Reparaturen',
-    greaseTrapCleaning: 'Fettabscheider-Reinigung',
-    hydrojettingRootRemoval: 'Hochdruckspulung & Wurzelfrasen',
+    kitchens: 'Kuechenrenovierung',
+    bathrooms: 'Badsanierung',
+    painting: 'Malerarbeiten',
+    flooring: 'Bodenverlegung',
+    interiorFinishing: 'Innenausbau',
+    fullRemodeling: 'Komplettsanierung',
   },
   tr: {
     all: 'Tum Hizmetler',
-    pumping: 'Pompalama',
-    inspections: 'Inceleme',
-    repairs: 'Onarim',
-    greaseTrapCleaning: 'Yag Tutucu Temizligi',
-    hydrojettingRootRemoval: 'Yuksek Basincli Acma & Kok Temizleme',
+    kitchens: 'Mutfak Yenileme',
+    bathrooms: 'Banyo Yenileme',
+    painting: 'Boya Isleri',
+    flooring: 'Zemin Doseme',
+    interiorFinishing: 'Ic Mekan Ince Isler',
+    fullRemodeling: 'Komple Tadilat',
   },
   en: {
     all: 'All Services',
-    pumping: 'Pumping',
-    inspections: 'Inspections',
-    repairs: 'Repairs',
-    greaseTrapCleaning: 'Grease Trap Cleaning',
-    hydrojettingRootRemoval: 'Hydrojetting & Root Removal',
+    kitchens: 'Kitchen Remodeling',
+    bathrooms: 'Bathroom Remodeling',
+    painting: 'Painting',
+    flooring: 'Flooring',
+    interiorFinishing: 'Interior Finishing',
+    fullRemodeling: 'Full Remodeling',
   },
 };
 
 const services = [
   {
-    slug: 'emergency-pumping',
-    category: 'pumping',
+    slug: 'kitchen-remodeling',
+    category: 'kitchens',
+    accent: '#c26a2b',
+    translations: {
+      de: {
+        title: 'Kuechenrenovierung',
+        summary:
+          'Modernisierung von Fronten, Wandflachen, Boden, Licht und funktionalen Details fur alltagstaugliche und moderne Kuechen.',
+        highlights: ['Vorbereitung und Umbauplanung', 'Oberflachen, Farbe und Boden abstimmen', 'Saubere Details bis zur finalen Ubergabe'],
+      },
+      tr: {
+        title: 'Mutfak Yenileme',
+        summary:
+          'Kapaklar, duvarlar, zemin, aydinlatma ve kullanimi kolay detaylarla mutfaklari daha modern hale getiriyoruz.',
+        highlights: ['Hazirlik ve proje plani', 'Renk, yuzey ve zemin uyumu', 'Temiz ve duzgun son teslim'],
+      },
+      en: {
+        title: 'Kitchen Remodeling',
+        summary:
+          'Upgrades for fronts, walls, floors, lighting and practical details to create cleaner, more functional kitchens.',
+        highlights: ['Preparation and remodeling plan', 'Aligned surfaces, color and flooring', 'Clean detailing through final handover'],
+      },
+    },
+  },
+  {
+    slug: 'bathroom-remodeling',
+    category: 'bathrooms',
     accent: '#0f766e',
     translations: {
       de: {
-        title: 'Notfall-Absaugung und Tankentleerung',
+        title: 'Badsanierung',
         summary:
-          'Schnelle Einsatze fur Sammelgruben, Hebeanlagen, Abwassertanks und uberlaufende Systeme in Wohn- und Gewerbeobjekten.',
-        highlights: ['Schnelle Anfahrt', 'Saubere Entsorgung', 'Geeignet fur Wohn- und Gewerbeobjekte'],
+          'Erneuerung von Oberflachen, Einbauten, Farbwelt und Raumwirkung fur moderne und gepflegte Bader.',
+        highlights: ['Bestehenden Raum neu strukturieren', 'Materialien und Oberflachen passend kombinieren', 'Modernes, ruhiges Gesamtbild'],
       },
       tr: {
-        title: 'Acil Pompalama ve Tank Bosaltma',
+        title: 'Banyo Yenileme',
         summary:
-          'Toplama cukurlari, pompa istasyonlari ve tasan atiksu sistemleri icin hizli saha mudahalesi.',
-        highlights: ['Hizli sevk', 'Temiz bosaltim', 'Konut ve ticari alanlar icin uygun'],
+          'Yuzeyler, sabit elemanlar, renk dili ve mekan etkisi yenilenerek daha modern banyolar ortaya cikiyor.',
+        highlights: ['Mekani yeniden duzenleme', 'Malzeme ve yuzey uyumu', 'Sakin ve modern son gorunum'],
       },
       en: {
-        title: 'Emergency Pumping and Tank Emptying',
+        title: 'Bathroom Remodeling',
         summary:
-          'Rapid deployment for holding pits, lifting stations, wastewater tanks and overflowing systems across residential and commercial assets.',
-        highlights: ['Fast dispatch', 'Clean disposal workflow', 'Suitable for residential and commercial sites'],
+          'Renewed surfaces, built-in elements, color direction and room feel for cleaner, more modern bathrooms.',
+        highlights: ['Rework the room layout direction', 'Combine materials and finishes carefully', 'Create a modern, calm end result'],
       },
     },
   },
   {
-    slug: 'scheduled-pumping',
-    category: 'pumping',
+    slug: 'interior-painting',
+    category: 'painting',
+    accent: '#8b5cf6',
+    translations: {
+      de: {
+        title: 'Malerarbeiten innen',
+        summary:
+          'Neuer Anstrich, saubere Kanten und abgestimmte Farbkonzepte fur einzelne Raume oder komplette Wohnungen.',
+        highlights: ['Untergrund vorbereiten', 'Farbkonzepte fur Wohnraume', 'Saubere Linien und Abschlusse'],
+      },
+      tr: {
+        title: 'Ic mekan boya isleri',
+        summary:
+          'Tek odadan tum daireye kadar temiz boya uygulamasi, net cizgiler ve mekana uygun renk secimleri.',
+        highlights: ['Yuzey hazirligi', 'Yasama alanina uygun renk secimi', 'Temiz kenarlar ve bitisler'],
+      },
+      en: {
+        title: 'Interior Painting',
+        summary:
+          'Fresh paint, clean lines and balanced color concepts for single rooms or full apartment refreshes.',
+        highlights: ['Surface preparation first', 'Color direction for living spaces', 'Clean edges and final details'],
+      },
+    },
+  },
+  {
+    slug: 'flooring-installation',
+    category: 'flooring',
     accent: '#155e75',
     translations: {
       de: {
-        title: 'Planbare Pump- und Wartungseinsatze',
+        title: 'Bodenverlegung',
         summary:
-          'Wiederkehrende Absaugung und technische Betreuung fur Betreiber, Hausverwaltungen und Industrieobjekte.',
-        highlights: ['Wartungsintervalle', 'Objektbezogene Einsatzplanung', 'Dokumentation fur Betreiber'],
+          'Neue Bodenbelage fur Wohn- und Schlafbereiche mit ruhigem Gesamtbild, sauberen Ubergangen und passender Materialwirkung.',
+        highlights: ['Bodenrichtung und Raumwirkung planen', 'Saubere Ubergange und Sockelbereiche', 'Geeignet fur Auffrischung oder Komplettumbau'],
       },
       tr: {
-        title: 'Planli Pompalama ve Bakim Servisi',
+        title: 'Zemin doseme',
         summary:
-          'Yoneticiler, tesisler ve sanayi alanlari icin periyodik pompalama ve teknik saha destegi.',
-        highlights: ['Periyodik servis planlari', 'Tesise uygun planlama', 'Raporlanabilir saha cikti'],
+          'Yasama ve yatak alanlari icin duzgun gecisli, temiz bitisli ve mekana uygun yeni zemin uygulamalari.',
+        highlights: ['Zemin yonu ve mekan etkisi planlama', 'Temiz gecisler ve supurgelik detaylari', 'Yenileme veya komple tadilat icin uygun'],
       },
       en: {
-        title: 'Scheduled Pumping and Maintenance',
+        title: 'Flooring Installation',
         summary:
-          'Recurring pumping and technical support for operators, property managers and industrial facilities.',
-        highlights: ['Service intervals', 'Site-specific planning', 'Operator-ready reporting'],
+          'New floor finishes for living and sleeping areas with smooth transitions, clean edges and a cohesive room feel.',
+        highlights: ['Plan room flow and board direction', 'Tidy transitions and skirting details', 'Works for refreshes or full remodels'],
       },
     },
   },
   {
-    slug: 'camera-inspections',
-    category: 'inspections',
+    slug: 'drywall-and-finishing',
+    category: 'interiorFinishing',
     accent: '#ca8a04',
     translations: {
       de: {
-        title: 'Kamera- und Systeminspektionen',
+        title: 'Innenausbau und Feinspachtel',
         summary:
-          'Visuelle Leitungsprufungen zur Schadstellenerkennung, Zustandsbewertung und Vorbereitung von Reparaturen.',
-        highlights: ['Schadstellen lokalisieren', 'Berichte fur Eigentumer', 'Vorbereitung weiterer Massnahmen'],
+          'Trockenbau, Wandbegradigung und Finish-Arbeiten fur stimmige Innenraume mit sauberen Flachen und klaren Linien.',
+        highlights: ['Wande und Decken vorbereiten', 'Saubere Flachen fur Farbe und Licht', 'Ideal fur Grundriss- und Raumaufwertung'],
       },
       tr: {
-        title: 'Kamera ve Sistem Incelemeleri',
+        title: 'Ic mekan ince isler ve alci finisaj',
         summary:
-          'Hasar tespiti, durum analizi ve onarim hazirligi icin goruntulu hat kontrolu.',
-        highlights: ['Hasar noktasi tespiti', 'Yonetici icin rapor', 'Sonraki adimlara teknik temel'],
+          'Alcipan, duvar duzeltme ve bitis isleriyle daha temiz, dengeli ve modern ic mekanlar olusturuyoruz.',
+        highlights: ['Duvar ve tavan hazirligi', 'Boyaya hazir temiz yuzeyler', 'Mekan kalitesini artiran ince isler'],
       },
       en: {
-        title: 'Camera and System Inspections',
+        title: 'Drywall and Interior Finishing',
         summary:
-          'Visual line inspections for damage detection, condition assessment and repair planning.',
-        highlights: ['Locate damage points', 'Owner-ready reporting', 'Supports next repair steps'],
+          'Drywall, wall correction and finishing work for more refined interiors with cleaner surfaces and stronger lines.',
+        highlights: ['Prepare walls and ceilings properly', 'Create paint-ready clean surfaces', 'Great for layout and interior upgrades'],
       },
     },
   },
   {
-    slug: 'pipe-and-drain-repairs',
-    category: 'repairs',
+    slug: 'full-home-renovation',
+    category: 'fullRemodeling',
     accent: '#b91c1c',
     translations: {
       de: {
-        title: 'Rohr- und Ablaufreparaturen',
+        title: 'Komplettsanierung',
         summary:
-          'Gezielte Reparaturen nach Inspektion oder Storungsbild, um Betrieb und Nutzung schnell wiederherzustellen.',
-        highlights: ['Fehlerbild analysieren', 'Passende Reparaturmethode', 'Minimierung von Ausfallzeiten'],
+          'Koordinierte Renovierung mehrerer Raume oder ganzer Wohnungen mit einem klaren Ablauf von der Vorbereitung bis zur Ubergabe.',
+        highlights: ['Mehrere Gewerke in einem Projekt steuern', 'Einheitliche Gestaltung uber alle Raume', 'Fur Eigennutzung, Vermietung oder Verkauf'],
       },
       tr: {
-        title: 'Boru ve Drenaj Onarimlari',
+        title: 'Komple tadilat',
         summary:
-          'Inceleme veya ariza bulgusuna gore hedefli onarimlarla tesisin tekrar hizli calismasi saglanir.',
-        highlights: ['Ariza analizi', 'Uygun onarim yontemi', 'Durus suresini azaltma'],
+          'Birden fazla alanin ya da tum dairenin, hazirliktan teslime kadar tek plan altinda koordine edilmis yenilenmesi.',
+        highlights: ['Birden fazla is kalemini tek projede yonetme', 'Tum alanlarda butunlu bir gorunum', 'Oturum, kiralama veya satis oncesi uygun'],
       },
       en: {
-        title: 'Pipe and Drain Repairs',
+        title: 'Full Home Renovation',
         summary:
-          'Targeted repairs based on inspection findings or incident symptoms to restore operation quickly.',
-        highlights: ['Failure analysis', 'Fit-for-purpose repair method', 'Reduced downtime'],
-      },
-    },
-  },
-  {
-    slug: 'grease-trap-cleaning',
-    category: 'greaseTrapCleaning',
-    accent: '#7c3aed',
-    translations: {
-      de: {
-        title: 'Fettabscheider-Reinigung',
-        summary:
-          'Regelmassige und akute Reinigung fur Gastronomie, Gemeinschaftsverpflegung und lebensmittelnahe Betriebe.',
-        highlights: ['Entleerung und Reinigung', 'Geruchs- und Betriebsrisiken reduzieren', 'Service fur Gastronomie'],
-      },
-      tr: {
-        title: 'Yag Tutucu Temizligi',
-        summary:
-          'Restoranlar, mutfaklar ve gida ile ilgili isletmeler icin periyodik veya acil temizlik hizmeti.',
-        highlights: ['Bosaltma ve temizlik', 'Koku ve isletme riskini azaltma', 'Restoran odakli servis'],
-      },
-      en: {
-        title: 'Grease Trap Cleaning',
-        summary:
-          'Scheduled and urgent cleaning for hospitality, catering and food-adjacent operations.',
-        highlights: ['Emptying and cleaning', 'Reduce odor and operational risk', 'Built for hospitality sites'],
-      },
-    },
-  },
-  {
-    slug: 'hydrojetting-root-removal',
-    category: 'hydrojettingRootRemoval',
-    accent: '#1d4ed8',
-    translations: {
-      de: {
-        title: 'Hochdruckspulung und Wurzelfrasen',
-        summary:
-          'Leistungsstarke Reinigung fur hartnackige Ablagerungen, Verwurzelungen und tief sitzende Verstopfungen.',
-        highlights: ['Hochdrucktechnik', 'Wurzeleinwuchs entfernen', 'Fur schwer zugangliche Probleme'],
-      },
-      tr: {
-        title: 'Yuksek Basincli Temizlik ve Kok Acma',
-        summary:
-          'Guclu ekipmanlarla koklenme, birikme ve derin tikaniklik sorunlarini gideririz.',
-        highlights: ['Yuksek basincli ekipman', 'Kok temizleme', 'Zor tikanikliklar icin uygun'],
-      },
-      en: {
-        title: 'Hydrojetting and Root Removal',
-        summary:
-          'High-power cleaning for stubborn buildup, root ingress and deep drainage blockages.',
-        highlights: ['High-pressure equipment', 'Root intrusion removal', 'Built for severe blockages'],
+          'Coordinated renovation of multiple rooms or entire apartments with one clear process from preparation to handover.',
+        highlights: ['Coordinate multiple trades in one plan', 'Keep the design language consistent', 'Suitable for living, letting or resale'],
       },
     },
   },

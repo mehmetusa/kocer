@@ -1,5 +1,6 @@
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
+import { siteConfig } from '../data/siteContent';
 import styles from '../styles/About.module.css';
 
 export default function About() {
@@ -10,7 +11,7 @@ export default function About() {
       <SEO title={copy.seo.aboutTitle} description={copy.about.lead} />
 
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Kocer Rohrtechnik</p>
+        <p className={styles.eyebrow}>{siteConfig.name}</p>
         <h1>{copy.about.title}</h1>
         <p>{copy.about.lead}</p>
       </section>

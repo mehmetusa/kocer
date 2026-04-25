@@ -14,9 +14,9 @@ const Layout = ({ children, title, description, structuredData }) => {
 
   const defaultStructuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Plumber',
+    '@type': 'GeneralContractor',
     name: siteConfig.legalName,
-    image: `${siteUrl}/favicon.ico`,
+    image: `${siteUrl}${siteConfig.logoPath}`,
     address: {
       '@type': 'PostalAddress',
       streetAddress: siteConfig.address.streetAddress,
@@ -37,13 +37,13 @@ const Layout = ({ children, title, description, structuredData }) => {
       <Head>
         <title>{seoTitle}</title>
         <meta name="description" content={seoDescription} />
-        <html lang={language} />
+        <meta httpEquiv="content-language" content={language} />
 
         <link rel="canonical" href={`${siteUrl}${router.asPath}`} />
 
         <meta property="og:title" content={seoTitle} />
         <meta property="og:description" content={seoDescription} />
-        <meta property="og:image" content={`${siteUrl}/favicon.ico`} />
+        <meta property="og:image" content={`${siteUrl}${siteConfig.logoPath}`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${siteUrl}${router.asPath}`} />
         <meta property="og:locale" content={language} />
@@ -51,7 +51,7 @@ const Layout = ({ children, title, description, structuredData }) => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={seoTitle} />
         <meta name="twitter:description" content={seoDescription} />
-        <meta name="twitter:image" content={`${siteUrl}/favicon.ico`} />
+        <meta name="twitter:image" content={`${siteUrl}${siteConfig.logoPath}`} />
 
         <script
           type="application/ld+json"

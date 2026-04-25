@@ -1,5 +1,26 @@
 module.exports = {
-  siteUrl: 'https://www.novasepticpumping.com',
-  generateRobotsTxt: true, // optional
-  exclude: ['/admin/*'], // optional
+  siteUrl: 'https://www.kocerbau.com',
+  generateRobotsTxt: true,
+  exclude: [
+    '/admin',
+    '/admin/*',
+    '/cart',
+    '/checkout',
+    '/cancel',
+    '/success',
+    '/login',
+    '/signin',
+    '/signup',
+    '/forgot-password',
+    '/reset-password',
+    '/user',
+    '/user/*',
+    '/orders/*',
+    '/product/*',
+    '/privacy-policy',
+    '/terms-of-use',
+    '/[slug]',
+    '/products',
+    '/sitemap',
+  ],
 };

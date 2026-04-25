@@ -8,13 +8,12 @@ import { getToken } from 'next-auth/jwt';
 const buildFilter = (query) => {
   const { category, search, isOrganic, isVegeterian, isShippingOk, isLive, ingredient } = query;
   const filter = {};
+  const normalizedCategory = typeof category === 'string' ? category.trim().toLowerCase() : '';
 
-  // Category filter
-  if (category && category.toLowerCase() !== 'Services' && category.toLowerCase() !== 'all') {
-    filter.category = category.toLowerCase();
+  if (normalizedCategory && normalizedCategory !== 'services' && normalizedCategory !== 'all') {
+    filter.category = new RegExp(`^${normalizedCategory.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}$`, 'i');
   }
 
-  // Search keywords
   let modifiedSearch = search;
   if (search) {
     const lowerSearch = search.toLowerCase();

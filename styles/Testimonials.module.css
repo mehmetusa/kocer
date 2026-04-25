@@ -1,0 +1,80 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hero,
+.card {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.hero {
+  padding: 30px;
+  background:
+    radial-gradient(circle at right top, rgba(245, 158, 11, 0.14), transparent 28%),
+    linear-gradient(135deg, rgba(16, 63, 87, 0.96), rgba(27, 94, 126, 0.92));
+  color: var(--wht);
+}
+
+.eyebrow {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-family: var(--pf);
+  font-size: clamp(2.3rem, 4vw, 4.2rem);
+}
+
+.hero p:last-child {
+  margin-top: 16px;
+  max-width: 64ch;
+  line-height: 1.85;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.card {
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.quote {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.9;
+}
+
+.author {
+  margin: 18px 0 0;
+  color: var(--sc);
+  font-weight: 800;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .card {
+    padding: 22px 18px;
+  }
+}

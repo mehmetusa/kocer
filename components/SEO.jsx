@@ -7,7 +7,7 @@ export default function SEO({
   title,
   description,
   slug = '',
-  image = '/favicon.ico',
+  image = siteConfig.logoPath,
   type = 'website',
   sku,
   price,
@@ -19,10 +19,11 @@ export default function SEO({
 
   const defaultTitle = siteConfig.legalName;
   const defaultDescription =
-    'Mehrsprachiger Rohr-, Kanal- und Pumpservice in Deutschland fur Absaugung, Inspektionen, Reparaturen und Hochdruckspulung.';
+    'Mehrsprachiges Home Remodeling in Deutschland fur Kuche, Bad, Malerarbeiten, Bodenverlegung und Komplettsanierung.';
 
   const seoTitle = title || defaultTitle;
   const seoDescription = (description || defaultDescription).slice(0, 155);
+  const seoImage = image.startsWith('http') ? image : `${baseUrl}${image}`;
 
   const autoSlug = slug || router.asPath.replace(/^\//, '');
   const url = autoSlug ? `${baseUrl}/${autoSlug}` : baseUrl;
@@ -33,7 +34,7 @@ export default function SEO({
       '@context': 'https://schema.org/',
       '@type': 'Product',
       name: seoTitle,
-      image: image,
+      image: seoImage,
       description: seoDescription,
       sku: sku || 'N/A',
       offers: {
@@ -50,7 +51,7 @@ export default function SEO({
       '@type': 'Service',
       serviceType: seoTitle,
       provider: {
-        '@type': 'Plumber',
+        '@type': 'GeneralContractor',
         name: siteConfig.legalName,
         areaServed: siteConfig.serviceArea,
         telephone: siteConfig.phone,
@@ -65,7 +66,7 @@ export default function SEO({
       '@type': 'Article',
       headline: seoTitle,
       description: seoDescription,
-      image: image,
+      image: seoImage,
       mainEntityOfPage: url,
       author: {
         '@type': 'Organization',
@@ -75,7 +76,7 @@ export default function SEO({
   } else {
     jsonLd = {
       '@context': 'https://schema.org',
-      '@type': 'Plumber',
+      '@type': 'GeneralContractor',
       name: siteConfig.legalName,
       url: baseUrl,
       description: seoDescription,
@@ -93,14 +94,14 @@ export default function SEO({
 
       <meta property="og:title" content={seoTitle} />
       <meta property="og:description" content={seoDescription} />
-      <meta property="og:image" content={image} />
+      <meta property="og:image" content={seoImage} />
       <meta property="og:url" content={url} />
       <meta property="og:type" content={type} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={seoTitle} />
       <meta name="twitter:description" content={seoDescription} />
-      <meta name="twitter:image" content={image} />
+      <meta name="twitter:image" content={seoImage} />
 
       {jsonLd && (
         <script

@@ -2,8 +2,24 @@ import fs from 'fs';
 import path from 'path';
 
 export default function handler(req, res) {
-  const baseUrl = 'https://www.novasepticpumping.com'; // your site URL
+  const baseUrl = 'https://www.kocerbau.com';
   const pagesDir = path.join(process.cwd(), 'pages');
+  const excludedRoutes = new Set([
+    '/admin',
+    '/cart',
+    '/checkout',
+    '/cancel',
+    '/success',
+    '/login',
+    '/signin',
+    '/signup',
+    '/forgot-password',
+    '/reset-password',
+    '/privacy-policy',
+    '/terms-of-use',
+    '/products',
+    '/[slug]',
+  ]);
 
   // Read all page files
   const getPages = (dir) => {
@@ -25,7 +41,7 @@ export default function handler(req, res) {
     return pages;
   };
 
-  const pages = getPages(pagesDir);
+  const pages = getPages(pagesDir).filter((page) => !excludedRoutes.has(page) && !page.startsWith('/user') && !page.startsWith('/orders') && !page.startsWith('/product'));
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

@@ -21,12 +21,13 @@ const FLAG_FILTERS = [
 ];
 
 const CATEGORIES = [
-  { id: 'pumping', name: 'Pumping' },
-  { id: 'Inspections', name: 'Inspections' },
-  { id: 'Repairs', name: 'Repairs' },
-  { id: 'Greasetrapcleaning', name: 'Grease trap cleaning' },
-  { id: 'HydrojettingandRootRemoval', name: 'Hydrojetting and Root Removal' }
-]
+  { id: 'kitchens', name: 'Kitchen Remodeling' },
+  { id: 'bathrooms', name: 'Bathroom Remodeling' },
+  { id: 'painting', name: 'Painting' },
+  { id: 'flooring', name: 'Flooring' },
+  { id: 'interiorFinishing', name: 'Interior Finishing' },
+  { id: 'fullRemodeling', name: 'Full Remodeling' },
+];
 
 const ProductsTab = ({ initialData }) => {
   const [products, setProducts] = useState(initialData?.products || []);

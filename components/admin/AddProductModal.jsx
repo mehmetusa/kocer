@@ -3,12 +3,13 @@ import styles from '../../styles/admin/AddProductModal.module.css';
 import axios from 'axios';
 
 const categories = [
-  { id: 'pumping', name: 'Pumping' },
-  { id: 'Inspections', name: 'Inspections' },
-  { id: 'Repairs', name: 'Repairs' },
-  { id: 'Greasetrapcleaning', name: 'Grease trap cleaning' },
-  { id: 'HydrojettingandRootRemoval', name: 'Hydrojetting and Root Removal' }
-]
+  { id: 'kitchens', name: 'Kitchen Remodeling' },
+  { id: 'bathrooms', name: 'Bathroom Remodeling' },
+  { id: 'painting', name: 'Painting' },
+  { id: 'flooring', name: 'Flooring' },
+  { id: 'interiorFinishing', name: 'Interior Finishing' },
+  { id: 'fullRemodeling', name: 'Full Remodeling' },
+];
 
 const AddProductModal = ({ setClose, onAdd }) => {
   const [title, setTitle] = useState('');

@@ -10,12 +10,13 @@ import {
 import SEO from '../components/SEO';
 import CreateOrderButton from '../components/CreateOrderButton';
 import { useLanguage } from '../context/LanguageContext';
-import { getLocalizedServices } from '../data/siteContent';
+import { getLocalizedCategories, getLocalizedServices, siteConfig } from '../data/siteContent';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   const { copy, language } = useLanguage();
   const services = getLocalizedServices(language).slice(0, 6);
+  const categoryLabels = getLocalizedCategories(language);
 
   return (
     <main className={styles.container}>
@@ -49,30 +50,18 @@ export default function Home() {
 
         <div className={styles.heroPanel}>
           <div className={styles.heroPanelCard}>
-            <p className={styles.heroPanelEyebrow}>Kocer Rohrtechnik</p>
+            <p className={styles.heroPanelEyebrow}>{siteConfig.name}</p>
             <h2>{copy.home.serviceSectionTitle}</h2>
             <p>{copy.home.serviceSectionText}</p>
             <div className={styles.heroChecks}>
-              <span>
-                <FaCheckCircle />
-                Pumping
-              </span>
-              <span>
-                <FaCheckCircle />
-                Inspections
-              </span>
-              <span>
-                <FaCheckCircle />
-                Repairs
-              </span>
-              <span>
-                <FaCheckCircle />
-                Grease trap cleaning
-              </span>
-              <span>
-                <FaCheckCircle />
-                Hydrojetting
-              </span>
+              {categoryLabels
+                .filter((category) => category.key !== 'all')
+                .map((category) => (
+                  <span key={category.key}>
+                    <FaCheckCircle />
+                    {category.label}
+                  </span>
+                ))}
             </div>
           </div>
         </div>
@@ -80,7 +69,7 @@ export default function Home() {
 
       <section className={styles.servicesSection}>
         <div className={styles.sectionHeading}>
-          <p className={styles.sectionEyebrow}>Services</p>
+          <p className={styles.sectionEyebrow}>{copy.home.serviceEyebrow}</p>
           <h2>{copy.home.serviceSectionTitle}</h2>
           <p>{copy.home.serviceSectionText}</p>
         </div>
@@ -111,7 +100,7 @@ export default function Home() {
 
       <section className={styles.reasonsSection}>
         <div className={styles.sectionHeading}>
-          <p className={styles.sectionEyebrow}>Why Kocer</p>
+          <p className={styles.sectionEyebrow}>{copy.home.reasonsEyebrow}</p>
           <h2>{copy.home.reasonsTitle}</h2>
         </div>
 
@@ -136,7 +125,7 @@ export default function Home() {
 
       <section className={styles.processSection}>
         <div className={styles.sectionHeading}>
-          <p className={styles.sectionEyebrow}>Process</p>
+          <p className={styles.sectionEyebrow}>{copy.home.processEyebrow}</p>
           <h2>{copy.home.processTitle}</h2>
         </div>
 
@@ -154,7 +143,7 @@ export default function Home() {
       <section className={styles.coverageSection}>
         <div className={styles.sectionHeading}>
           <p className={styles.sectionEyebrow}>
-            <FaGlobeEurope /> Germany
+            <FaGlobeEurope /> {copy.home.coverageEyebrow}
           </p>
           <h2>{copy.home.coverageTitle}</h2>
           <p>{copy.home.coverageText}</p>
@@ -172,7 +161,7 @@ export default function Home() {
 
       <section className={styles.finalCta}>
         <div>
-          <p className={styles.sectionEyebrow}>Kocer Rohrtechnik</p>
+          <p className={styles.sectionEyebrow}>{siteConfig.name}</p>
           <h2>{copy.home.finalCtaTitle}</h2>
           <p>{copy.home.finalCtaText}</p>
         </div>

@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
-import { FaPaperPlane, FaPhone, FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa';
-import styles from '../styles/Contact.module.css';
-import Toast from '../components/Toast'; // import the toast component
+import SEO from '../components/SEO';
+import { useLanguage } from '../context/LanguageContext';
+import { siteConfig } from '../data/siteContent';
+import styles from '../styles/Testimonials.module.css';
 
-const Testimonials = () => {
- 
+export default function Testimonials() {
+  const { copy } = useLanguage();
 
   return (
-    <section className={styles.contactSection} id="contact">
-   WIP
-    </section>
-  );
-};
+    <main className={styles.container}>
+      <SEO title={copy.seo.referencesTitle} description={copy.references.intro} />
 
-export default Testimonials;
+      <section className={styles.hero}>
+        <p className={styles.eyebrow}>{siteConfig.name}</p>
+        <h1>{copy.references.title}</h1>
+        <p>{copy.references.intro}</p>
+      </section>
+
+      <section className={styles.grid}>
+        {copy.references.items.map((item) => (
+          <article key={item.author} className={styles.card}>
+            <p className={styles.quote}>"{item.quote}"</p>
+            <p className={styles.author}>{item.author}</p>
+          </article>
+        ))}
+      </section>
+    </main>
+  );
+}

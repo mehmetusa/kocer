@@ -3,7 +3,12 @@ import { useRouter } from 'next/router';
 import { FaArrowRight, FaFilter } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import { useLanguage } from '../context/LanguageContext';
-import { getLocalizedCategories, getLocalizedServices, serviceCategoryOrder } from '../data/siteContent';
+import {
+  getLocalizedCategories,
+  getLocalizedServices,
+  serviceCategoryOrder,
+  siteConfig,
+} from '../data/siteContent';
 import styles from '../styles/Products.module.css';
 
 export default function Products() {
@@ -34,7 +39,7 @@ export default function Products() {
       </nav>
 
       <section className={styles.hero}>
-        <p className={styles.eyebrow}>Kocer Rohrtechnik</p>
+        <p className={styles.eyebrow}>{siteConfig.name}</p>
         <h1>{copy.servicesPage.title}</h1>
         <p>{copy.servicesPage.intro}</p>
       </section>

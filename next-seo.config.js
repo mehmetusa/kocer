@@ -1,6 +1,6 @@
 export default {
-  defaultTitle: 'Kocer Rohrtechnik Deutschland',
-  titleTemplate: '%s | Kocer Rohrtechnik',
+  defaultTitle: 'Kocer Bau Deutschland',
+  titleTemplate: '%s | Kocer Bau',
   description:
-    'Mehrsprachiger Rohr-, Kanal- und Pumpservice in Deutschland fur Absaugung, Inspektionen, Reparaturen und Hochdruckspulung.',
+    'Mehrsprachiges Home Remodeling in Deutschland fur Kuche, Bad, Malerarbeiten, Bodenverlegung und Komplettsanierung.',
 };

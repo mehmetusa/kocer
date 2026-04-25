@@ -54,6 +54,7 @@ const ProductSchema = new mongoose.Schema(
   },
   {
     timestamps: true,
+    suppressReservedKeysWarning: true,
     toJSON: { virtuals: true },
     toObject: { virtuals: true },
   },
@@ -108,14 +109,14 @@ ProductSchema.pre('save', async function (next) {
 
     // Auto-fill metaTitle
     if (!this.metaTitle) {
-      this.metaTitle = `${this.title} | ${this.category} | NOVA Septic Pumping`;
+      this.metaTitle = `${this.title} | ${this.category} | Kocer Bau`;
     }
 
     // Auto-fill metaDescription
     if (!this.metaDescription) {
       let descSnippet = this.desc.length > 120 ? this.desc.slice(0, 117) + '...' : this.desc;
       const labelText = labels.length ? ` (${labels.join(', ')})` : '';
-      this.metaDescription = `${descSnippet}${labelText} – Starting at $${minPrice}. Order now from NOVA Septic Pumping!`;
+      this.metaDescription = `${descSnippet}${labelText} - Request service from Kocer Bau. Starting guidance price: EUR ${minPrice}.`;
     }
 
     next();

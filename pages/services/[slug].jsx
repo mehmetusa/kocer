@@ -71,7 +71,7 @@ export default function ServiceDetailPage({ slug }) {
       </section>
 
       <section className={styles.relatedSection}>
-        <h2>More Services</h2>
+        <h2>{copy.serviceDetail.relatedTitle}</h2>
         <div className={styles.relatedGrid}>
           {relatedServices.map((item) => (
             <article key={item.slug} className={styles.relatedCard}>

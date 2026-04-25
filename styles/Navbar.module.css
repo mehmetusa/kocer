@@ -34,33 +34,24 @@
   text-decoration: none;
 }
 
-.logoMark {
+.logoImageWrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 54px;
-  height: 54px;
-  border-radius: 18px;
-  background: linear-gradient(135deg, var(--sc), var(--sc-soft));
-  color: var(--wht);
-  font-family: var(--pf);
-  font-size: 1.05rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  box-shadow: 0 14px 28px rgba(16, 63, 87, 0.18);
+  width: clamp(148px, 18vw, 210px);
+}
+
+.logoImage {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
 }
 
 .logoText {
   display: flex;
   flex-direction: column;
   color: var(--blk);
-  line-height: 1.05;
-}
-
-.logoText strong {
-  font-family: var(--pf);
-  font-size: 1.08rem;
-  letter-spacing: 0.02em;
+  line-height: 1;
 }
 
 .logoText span {
@@ -178,10 +169,6 @@
   display: flex;
   flex-direction: column;
   color: var(--blk);
-}
-
-.mobileBrandText strong {
-  font-family: var(--pf);
 }
 
 .mobileBrandText span {
@@ -311,6 +298,10 @@
 
   .logoText strong {
     font-size: 0.98rem;
+  }
+
+  .logoImageWrap {
+    width: min(160px, 46vw);
   }
 
   .rightIcons {

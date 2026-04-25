@@ -3,12 +3,13 @@ import axios from 'axios';
 import styles from '../../styles/admin/EditProductModal.module.css';
 
 const categories = [
-  { id: 'pumping', name: 'Pumping' },
-  { id: 'Inspections', name: 'Inspections' },
-  { id: 'Repairs', name: 'Repairs' },
-  { id: 'Greasetrapcleaning', name: 'Grease trap cleaning' },
-  { id: 'HydrojettingandRootRemoval', name: 'Hydrojetting and Root Removal' }
-]
+  { id: 'kitchens', name: 'Kitchen Remodeling' },
+  { id: 'bathrooms', name: 'Bathroom Remodeling' },
+  { id: 'painting', name: 'Painting' },
+  { id: 'flooring', name: 'Flooring' },
+  { id: 'interiorFinishing', name: 'Interior Finishing' },
+  { id: 'fullRemodeling', name: 'Full Remodeling' },
+];
 
 const EditProductModal = ({ isOpen, onClose, product, onSave }) => {
   const [title, setTitle] = useState('');

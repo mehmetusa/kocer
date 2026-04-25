@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from '../styles/Footer.module.css';
@@ -42,7 +43,7 @@ const Footer = () => {
 
   const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Plumber',
+    '@type': 'GeneralContractor',
     name: siteConfig.legalName,
     address: {
       '@type': 'PostalAddress',
@@ -62,8 +63,17 @@ const Footer = () => {
     <footer className={styles.container}>
       <div className={styles.topSection}>
         <div className={styles.brandPanel}>
-          <p className={styles.eyebrow}>Kocer Rohrtechnik</p>
-          <h2 className={styles.brandTitle}>Deutschland</h2>
+          <div className={styles.brandLogoWrap}>
+            <Image
+              src={siteConfig.logoPath}
+              alt={siteConfig.name}
+              width={260}
+              height={78}
+              className={styles.brandLogo}
+            />
+          </div>
+          <p className={styles.eyebrow}>{siteConfig.name}</p>
+          <h2 className={styles.brandTitle}>{copy.home.coverageEyebrow}</h2>
           <p className={styles.brandText}>{copy.footer.blurb}</p>
           <p className={styles.brandNote}>{copy.footer.note}</p>
         </div>
@@ -105,7 +115,7 @@ const Footer = () => {
           <div className={styles.card}>
             <h3 className={styles.title}>
               <FaEnvelope className={styles.inlineIcon} />
-              E-Mail
+              {copy.contact.cards[2].title}
             </h3>
             <a href={`mailto:${siteConfig.email}`} className={styles.textLink}>
               {siteConfig.email}
@@ -142,7 +152,11 @@ const Footer = () => {
       </div>
 
       {showButton && (
-        <button className={styles.scrollTop} onClick={scrollToTop} aria-label="Scroll to top">
+        <button
+          className={styles.scrollTop}
+          onClick={scrollToTop}
+          aria-label={copy.common.scrollTop}
+        >
           <FaArrowUp />
         </button>
       )}

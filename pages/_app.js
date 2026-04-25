@@ -6,20 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 import { store, persistor } from '../redux/store';
 import SEO from '../next-seo.config';
 import { DefaultSeo } from 'next-seo';
-import { Space_Grotesk, Manrope } from 'next/font/google';
 import { LanguageProvider } from '../context/LanguageContext';
-
-const headingFont = Space_Grotesk({
-  subsets: ['latin'],
-  variable: '--font-heading',
-  display: 'swap',
-});
-
-const bodyFont = Manrope({
-  subsets: ['latin'],
-  variable: '--font-body',
-  display: 'swap',
-});
 
 export default function App({ Component, pageProps: { session, ...pageProps } }) {
   return (
@@ -27,14 +14,12 @@ export default function App({ Component, pageProps: { session, ...pageProps } })
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <LanguageProvider>
-            <div className={`${headingFont.variable} ${bodyFont.variable}`}>
-              <div className="appWrapper">
-                <div className="appContainer">
-                  <Layout>
-                    <DefaultSeo {...SEO} />
-                    <Component {...pageProps} />
-                  </Layout>
-                </div>
+            <div className="appWrapper">
+              <div className="appContainer">
+                <Layout>
+                  <DefaultSeo {...SEO} />
+                  <Component {...pageProps} />
+                </Layout>
               </div>
             </div>
           </LanguageProvider>

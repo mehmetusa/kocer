@@ -5,6 +5,7 @@ import Product from '../../../models/Product';
 import Coupon from '../../../models/Coupon';
 import mongoose from 'mongoose';
 import sendInvoice from '../../../utils/send-invoice';
+import { siteConfig } from '../../../data/siteContent';
 
 const FREE_SHIPPING_THRESHOLD = 250;
 const DEFAULT_SHIPPING_FEE = 25;
@@ -149,7 +150,7 @@ export default async function handler(req, res) {
         // --- Send invoices ---
         try {
           await sendInvoice(order, order.customer.email);
-          await sendInvoice(order, 'inovasepticpumping@gmail.com');
+          await sendInvoice(order, siteConfig.email);
         } catch (err) {
           console.error('Failed to send invoice:', err);
         }

@@ -1,5 +1,18 @@
 module.exports = {
   images: {
-    domains: ['res.cloudinary.com', 'upload.wikimedia.org', 'cdn-icons-png.flaticon.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn-icons-png.flaticon.com',
+      },
+    ],
   },
 };

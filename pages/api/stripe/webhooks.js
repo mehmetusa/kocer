@@ -3,6 +3,7 @@ import Stripe from 'stripe';
 import dbConnect from '../../../utils/mongo';
 import Order from '../../../models/Order';
 import sendInvoice from '../../../utils/send-invoice';
+import { siteConfig } from '../../../data/siteContent';
 
 export const config = { api: { bodyParser: false } };
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, {
@@ -87,8 +88,8 @@ export default async function handler(req, res) {
 
       // Send invoice email
       try {
-        await sendInvoice({ customerEmail: order.customer.email, order });
-        await sendInvoice(order, 'inovasepticpumping@gmail.com');
+        await sendInvoice(order, order.customer.email);
+        await sendInvoice(order, siteConfig.email);
         console.log(`📧 Invoice sent to ${order.customer.email}`);
       } catch (err) {
         console.error('⚠️ Failed to send invoice:', err);

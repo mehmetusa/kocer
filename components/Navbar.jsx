@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import {
@@ -31,17 +32,25 @@ const Navbar = () => {
         type="button"
         className={styles.mobileMenuIcon}
         onClick={() => setDrawerOpen(true)}
-        aria-label="Open menu"
+        aria-label={copy.common.openMenu}
       >
         <FaBars size={36} color="#333" />
       </button>
 
       <div className={styles.logoWrapper}>
         <Link href="/" className={styles.logo} onClick={handleLinkClick}>
-          <span className={styles.logoMark}>KR</span>
+          <span className={styles.logoImageWrap}>
+            <Image
+              src={siteConfig.logoPath}
+              alt={siteConfig.name}
+              width={240}
+              height={72}
+              className={styles.logoImage}
+              priority
+            />
+          </span>
           <span className={styles.logoText}>
-            <strong>Kocer Rohrtechnik</strong>
-            <span>Deutschland</span>
+            <span>{copy.home.coverageEyebrow}</span>
           </span>
         </Link>
       </div>
@@ -87,17 +96,24 @@ const Navbar = () => {
       <ul className={`${styles.mobileDrawer} ${drawerOpen ? styles.open : ''}`}>
         <li className={styles.mobileDrawerHeader}>
           <div className={styles.mobileBrand}>
-            <span className={styles.logoMark}>KR</span>
+            <span className={styles.logoImageWrap}>
+              <Image
+                src={siteConfig.logoPath}
+                alt={siteConfig.name}
+                width={220}
+                height={66}
+                className={styles.logoImage}
+              />
+            </span>
             <span className={styles.mobileBrandText}>
-              <strong>Kocer Rohrtechnik</strong>
-              <span>Deutschland</span>
+              <span>{copy.home.coverageEyebrow}</span>
             </span>
           </div>
           <button
             type="button"
             className={styles.closeBtn}
             onClick={() => setDrawerOpen(false)}
-            aria-label="Close menu"
+            aria-label={copy.common.closeMenu}
           >
             <FaTimes size={26} />
           </button>
