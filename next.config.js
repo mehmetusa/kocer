@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    cpus: 4,
+  },
   images: {
     remotePatterns: [
       {
